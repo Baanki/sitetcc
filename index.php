@@ -15,7 +15,7 @@ session_start();
 <body bgcolor="E8E8E8">
 
     <!-- MENU -->
-
+    
     <header>
         <img id="logo" src="img/logotcc2.jpg" alt="">
         <nav class="menu_header">
