@@ -66,8 +66,8 @@ session_start();
             ?>
                 <style>.tela_cadastro{display: block;}</style>
                 <div class="cadastro_concluido_tela">
-                    <p class="texto_cadastro_concluido">Conta criada com sucesso!!<br>Para acessar clique<a href="#" class="texto_cadastro_concluido_aqui">aqui</a></p>
-                    
+                    <p class="texto_cadastro_concluido">Conta criada com sucesso!!<br>Para acessar clique<button class="texto_cadastro_concluido_aqui">aqui</a></p>
+                    <style>#form_concluido{display: none}</style>
                 </div>
             <?php
                 endif;
@@ -85,7 +85,7 @@ session_start();
                 endif;
                 unset($_SESSION['usuario_existe'])
             ?>
-                <form action="cadastrar.php" method="POST">                
+                <form id="form_concluido" action="cadastrar.php" method="POST">                
                     <label for="email_cadastro" class="texto_campo">E-mail:</label>
                         <input class="cadastro_campo" type="email" name="email_cadastro">
                     <label for="nome_cadastro" class="texto_campo">Nome:</label>

@@ -227,7 +227,7 @@ header{
             width: 35%;
             height: auto;
             background-color: white;
-            display: none;/* mudar aqui para teste do botton de aparecer */
+            display: block;/* mudar aqui para teste do botton de aparecer */
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -287,9 +287,12 @@ header{
             font-family: Arial;
             font-size: 17pt;
             margin: 0px;
-            padding: 5px;
+            padding: 0px;
+            height: auto;
             text-decoration: none;
             color: black;
+            border: none;
+            background-color: red;
         }.texto_cadastro_concluido_aqui:hover{
             text-decoration: underline;
         }
