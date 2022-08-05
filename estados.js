@@ -1,8 +1,6 @@
 const estados = document.querySelector("#estado_cadastro")
 const cidades = document.querySelector("#cidade_cadastro")
-const cors = require("cors")
 
-app.use(cors())
 
 const pegarestados = async() => {
     const data = await fetch('http://192.168.1.4/tcc/api/estados.php')
