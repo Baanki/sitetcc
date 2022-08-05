@@ -3,7 +3,7 @@ const cidades = document.querySelector("#cidade_cadastro")
 
 
 const pegarestados = async() => {
-    const data = await fetch('http://192.168.0.109/tcc/api/estados.php')
+    const data = await fetch('http://localhost/tcc/api/estados.php')
         .then(resp => resp.json()).catch(error => false)
 
     if(!data) return 
@@ -25,7 +25,7 @@ const inserirestados = (data) =>{
 }
 
 const pegarcidades = async (cod_estado) =>{
-    const data = await fetch(`http://192.168.0.109/tcc/api/cidades.php?cod_estado=${cod_estado}`)
+    const data = await fetch(`http://localhost/tcc/api/cidades.php?cod_estado=${cod_estado}`)
         .then(resp => resp.json()).catch(error => false)
 
     if(!data) return 

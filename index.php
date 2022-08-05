@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('conexao.php');
-$usuario = mysqli_query("SELECT * FROM `tb_cliente` ORDER BY `tb_cliente`.`cli_nome`");
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,11 +32,10 @@ $usuario = mysqli_query("SELECT * FROM `tb_cliente` ORDER BY `tb_cliente`.`cli_n
                 if(isset($_SESSION['usuario'])):
             ?>
                 <style>#botao_login{display: none;}</style>
-                <button id="botao_login_cliente">Olá <?php echo $usuario?></button>
-
+                <button id="botao_login_cliente">Olá <?php echo $usuario["cli_nome"]?></button>
             <?php
                 endif;
-                //unset($_SESSION['usuario']);
+                unset($_SESSION['usuario']);
             ?>
             <button id="botao_login"><b>Login</b> ou <b>Cadastre-se</b></button>
             <a href="#"><img src="img/cart_header_white.png" onmouseover="effect_market_cartover()" onmouseout="effect_market_cartout()" id="botao_carrinho" alt=""></a>
@@ -144,7 +143,6 @@ $usuario = mysqli_query("SELECT * FROM `tb_cliente` ORDER BY `tb_cliente`.`cli_n
         })
     </script>
     <!-- Aparecer tela de login -->
-    <a href="https://www.flaticon.com/br/icones-gratis/carrinho" title="carrinho ícones">Designed by Freepik</a>
 </body>
 </html>
 <?php
