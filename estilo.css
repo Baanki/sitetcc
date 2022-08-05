@@ -52,6 +52,22 @@ header{
                 color: black;
                 transition: 0.5s;
             }
+            #botao_login_cliente{
+                text-decoration: none;
+                padding: 1em;
+                font-family: Arial;
+                border-style: solid;
+                border-radius: 5px;
+                border-width: 1px;
+                border-color: black;
+                margin-left: 5em;
+                color: white;
+                background-color: black;
+            }#botao_login_cliente:hover{
+                background-color: white;
+                color: black;
+                transition: 0.5s;
+            }
     .div_login_carrinho{
         width: auto;
         height: 100%;

@@ -18,8 +18,8 @@ $resultado = mysqli_query($conexao, $query);
 $row = mysqli_num_rows($resultado);
 
 if($row == 1){
-    $_SESSION['usuario'] = $usuario;
-    header('location: aaa.php');
+    $_SESSION['usuario'] = true;
+    header('location: index.php');
     exit();
 } else{
     $_SESSION['login_incompleto'] = true;
