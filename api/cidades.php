@@ -1,5 +1,5 @@
 <?php
-require_once '../conexao.php';
+require_once '../includes/conexao.php';
 
 $query = "select * from tb_cidade where cod_estado = ?";
 

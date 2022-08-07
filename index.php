@@ -1,14 +1,6 @@
 <?php
 session_start();
 include('includes/conexao.php');
-function includes(){
-    foreach(glob('includes/*.php') as $arquivo){
-        require_once $arquivo;
-    }
-}
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,7 +12,7 @@ function includes(){
     <script type="text/javascript" src="estados.js"></script>
     <title>Drip</title>
 </head>
-<body bgcolor="E8E8E8">
+<body bgcolor="E8E8E8"> 
 
     <!-- MENU -->
     
@@ -35,17 +27,13 @@ function includes(){
         </nav>
         <div class="div_login_carrinho">
             <?php
-                if(isset($_SESSION['login_completo'])):
-                    $usuario_cli = mysqli_query($conexao, "SELECT cli_nome FROM tb_cliente WHERE cod_cliente = 34");
-                        while ($row = mysqli_fetch_assoc($usuario_cli)){
-                            $teste = $row['cli_nome'];
-                        }
+                if(isset($_SESSION['login_completo'])):              
             ?>
                 <style>#botao_login{display: none;}</style>
-                <button id="botao_login_cliente">Olá <?php echo $teste?></button>
+                <button id="botao_login_cliente"><?php echo "Olá " . $_SESSION['usuario_cli']?></button>
             <?php
                 endif;
-                //unset($_SESSION['login_completo']);
+                unset($_SESSION['login_completo']);
             ?>
             <button id="botao_login"><b>Login</b> ou <b>Cadastre-se</b></button>
             <a href="#"><img src="img/cart_header_white.png" onmouseover="effect_market_cartover()" onmouseout="effect_market_cartout()" id="botao_carrinho" alt=""></a>

@@ -1,5 +1,5 @@
 <?php
-require_once '../conexao.php';
+require_once '../includes/conexao.php';
 
 $query = "select cod_estado, est_nome from tb_estado";
 
