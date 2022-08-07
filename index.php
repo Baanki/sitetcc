@@ -29,13 +29,17 @@ include('conexao.php');
         </nav>
         <div class="div_login_carrinho">
             <?php
-                if(isset($_SESSION['usuario'])):
+                if(isset($_SESSION['login_completo'])):
+                    $usuario_cli = mysqli_query($conexao, "SELECT cli_nome FROM tb_cliente WHERE cod_cliente = 34");
+                        while ($row = mysqli_fetch_assoc($usuario_cli)){
+                            $teste = $row['cli_nome'];
+                        }
             ?>
                 <style>#botao_login{display: none;}</style>
-                <button id="botao_login_cliente">Olá <?php echo $usuario["cli_nome"]?></button>
+                <button id="botao_login_cliente">Olá <?php echo $teste?></button>
             <?php
                 endif;
-                unset($_SESSION['usuario']);
+                unset($_SESSION['login_completo']);
             ?>
             <button id="botao_login"><b>Login</b> ou <b>Cadastre-se</b></button>
             <a href="#"><img src="img/cart_header_white.png" onmouseover="effect_market_cartover()" onmouseout="effect_market_cartout()" id="botao_carrinho" alt=""></a>
