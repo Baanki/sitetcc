@@ -1,6 +1,13 @@
 <?php
 session_start();
-include('conexao.php');
+include('includes/conexao.php');
+function includes(){
+    foreach(glob('includes/*.php') as $arquivo){
+        require_once $arquivo;
+    }
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -8,7 +15,6 @@ include('conexao.php');
 
 <head>
     <!-- Meta tags Obrigatórias -->
-    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <script type="text/javascript" src="scripttcc.js"></script>
     <script type="text/javascript" src="estados.js"></script>
@@ -39,7 +45,7 @@ include('conexao.php');
                 <button id="botao_login_cliente">Olá <?php echo $teste?></button>
             <?php
                 endif;
-                unset($_SESSION['login_completo']);
+                //unset($_SESSION['login_completo']);
             ?>
             <button id="botao_login"><b>Login</b> ou <b>Cadastre-se</b></button>
             <a href="#"><img src="img/cart_header_white.png" onmouseover="effect_market_cartover()" onmouseout="effect_market_cartout()" id="botao_carrinho" alt=""></a>
@@ -59,7 +65,7 @@ include('conexao.php');
                     endif;
                     unset($_SESSION['login_incompleto']);
                     ?>
-                        <form action="login.php" method="POST">
+                        <form action="includes/login.php" method="POST">
                             <label for="email_login" class="texto_campo">E-mail:
                                 <input class="login_campo" type="email" name="email_login">
                             </label>
@@ -101,7 +107,7 @@ include('conexao.php');
                 unset($_SESSION['usuario_existe'])
             ?>
 
-                <form id="form_concluido" action="cadastrar.php" method="POST">                
+                <form id="form_concluido" action="includes/cadastrar.php" method="POST">                
                     <label for="email_cadastro" class="texto_campo">E-mail:</label>
                         <input class="cadastro_campo" type="email" name="email_cadastro">
                     <label for="nome_cadastro" class="texto_campo">Nome:</label>
