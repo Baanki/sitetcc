@@ -13,12 +13,15 @@ const pegarestados = async() => {
 
 const inserirestados = (data) =>{
 
-    estado_cadastro.innerHTML = " "
-    estado_cadastro.innerHTML = "<option>Selecione</option>"
+    //estado_cadastro.innerHTML = " "
+    //estado_cadastro.innerHTML = "<option>Selecione</option>"
 
     data.forEach(row => {
-
-     estado_cadastro.innerHTML += `<option value="${row["cod_estado"]}">${row["est_nome"]}</option>`
+        var teste = document.createElement('option');
+        teste.value = `${row["cod_estado"]}`;
+        teste.innerHTML = `${row["est_nome"]}`;
+        estado_cadastro.appendChild(teste);
+     //estado_cadastro.innerHTML += `<option value="${row["cod_estado"]}">${row["est_nome"]}</option>`
     })
 
     estado_cadastro.addEventListener("change", e => pegarcidades(estado_cadastro.value))
@@ -37,8 +40,11 @@ const inserircidades = (data) =>{
     cidade_cadastro.innerHTML = "<option>Selecione</option>"
 
     data.forEach(row => {
-
-     cidade_cadastro.innerHTML += `<option value="${row["cid_nome"]}">${row["cid_nome"]}</option>`
+        var teste2 = document.createElement('option');
+        teste2.value = `${row["cid_nome"]}`;
+        teste2.innerHTML = `${row["cid_nome"]}`;
+        cidade_cadastro.appendChild(teste2);
+    //cidade_cadastro.innerHTML += `<option value="${row["cid_nome"]}">${row["cid_nome"]}</option>`
     })
 
 }
