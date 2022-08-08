@@ -38,7 +38,7 @@ const inserircidades = (data) =>{
 
     data.forEach(row => {
 
-     cidade_cadastro.innerHTML += `<option value="${row["cid_nome"]},${row["cod_cidade"]}">${row["cid_nome"]}</option>`
+     cidade_cadastro.innerHTML += `<option value="${row["cid_nome"]}">${row["cid_nome"]}</option>`
     })
 
 }

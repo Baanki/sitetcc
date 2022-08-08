@@ -19,7 +19,7 @@ $row = mysqli_fetch_assoc($result);
 //SE O USUÁRIO JÁ EXISTIR
 if($row['total'] == 1){
     $_SESSION['usuario_existe'] = true;
-    header('location: index.php');
+    header('location:\tcc/index.php');
     exit;
 }
 
@@ -32,6 +32,6 @@ if($conexao -> query($sql) === true){
 
 $conexao->close();
 
-header('location: index.php');
+header('location:\tcc/index.php');
 exit;
 ?>

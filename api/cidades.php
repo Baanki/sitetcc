@@ -1,7 +1,7 @@
 <?php
 require_once '../includes/conexao.php';
 
-$query = "select * from tb_cidade where cod_estado = ?";
+$query = "select cid_nome from tb_cidade where cod_estado = ?";
 
 $id = $_GET["cod_estado"] ?? 0;
 
