@@ -9,7 +9,8 @@ include('includes/conexao.php');
     <!-- Meta tags Obrigatórias -->
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <script type="text/javascript" src="scripttcc.js"></script>
-    <script type="text/javascript" src="estados.js"></script>
+    <!--<script type="text/javascript" src="estados.js"></script>-->
+    <script async refer src="api/cep.js"></script>
     <title>Drip</title>
 </head>
 <body bgcolor="E8E8E8"> 
@@ -97,30 +98,28 @@ include('includes/conexao.php');
 
                 <form id="form_concluido" action="includes/cadastrar.php" method="POST">                
                     <label for="email_cadastro" class="texto_campo">E-mail:</label>
-                        <input class="cadastro_campo" type="email" name="email_cadastro">
+                        <input class="cadastro_campo" type="email" name="email_cadastro" id="email_cadastro">
                     <label for="nome_cadastro" class="texto_campo">Nome:</label>
-                        <input class="cadastro_campo" type="text" name="nome_cadastro">
-                    <label for="ende_cadastro" class="texto_campo">Endereço:</label>
-                        <input class="cadastro_campo" type="text" name="ende_cadastro">
+                        <input class="cadastro_campo" type="text" name="nome_cadastro" id="nome_cadastro">
+                    <label for="rua_cadastro" class="texto_campo">Rua:</label>
+                        <input class="cadastro_campo" type="text" name="rua_cadastro" id="rua_cadastro">
                     <div class="cadastro_ladoa">
                         <label for="estado_cadastro" class="texto_campo">Estado:</label>
-                            <select class="cadastro_campo" id="estado_cadastro" name="estado_cadastro">
-
-                            </select>
+                            <input class="cadastro_campo" type="text" name="estado_cadastro" id="estado_cadastro">    
+                        
                         <label for="cep_cadastro" class="texto_campo">CEP:</label>
-                            <input class="cadastro_campo2" type="text" name="cep_cadastro">
+                            <input class="cadastro_campo2" type="text" name="cep_cadastro" id="cep_cadastro" value="" onblur="pesquisacep(this.value);">
                         <label for="senha_cadastro" class="texto_campo">Senha:</label>
                             <input class="cadastro_campo" type="password" name="senha_cadastro">  
                     </div>
                     <div class="cadastro_ladob">
                         <label for="cidade_cadastro" class="texto_campo">Cidade:</label>
-                            <select class="cadastro_campo2" id="cidade_cadastro" name="cidade_cadastro" name="cidade_cadastro2">
+                            <input class="cadastro_campo2" type="text" name="cidade_cadastro" id="cidade_cadastro">    
 
-                            </select>
                         <label for="cpf_cadastro" class="texto_campo">CPF:</label>
                             <input class="cadastro_campo2" type="text" name="cpf_cadastro">
-                        <label for="senha2_cadastro" class="texto_campo">Confirmar senha:</label>
-                            <input class="cadastro_campo" type="password" name="senha2_cadastro">  
+                        <label for="bairro_cadastro" class="texto_campo">Bairro:</label>
+                            <input class="cadastro_campo" type="text" name="bairro_cadastro" id="bairro_cadastro">  
                     </div>  
                     <input class="submit_campo" style="margin-top: 20px;" type="submit" name="entrar_cadastro" value="Cadastrar">            
                 </form>
