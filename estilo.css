@@ -240,7 +240,7 @@ header{
         .tela_cadastro{
             position: absolute;
             padding: 1em;
-            width: 35%;
+            width: 70%;
             height: auto;
             background-color: white;
             display: none;/* mudar aqui para teste do botton de aparecer */
@@ -273,12 +273,23 @@ header{
             border-width: 1px;
         }
         .cadastro_ladoa{
+            padding-right: 5%;
+            width: 45%;
+            float: left;
+            border-right: solid 1px;
+        }
+        .cadastro_ladoin_a{
             width: 45%;
             float: left;
         }
+        .cadastro_ladoin_b{
+            width: 45%;
+            float: right;
+            margin-left: 5%;
+        }
         .cadastro_ladob{
             float: right;
-            width: 45%;
+            width: 44%;
             margin-left: 5%;
         }
 

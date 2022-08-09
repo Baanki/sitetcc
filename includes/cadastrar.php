@@ -4,12 +4,19 @@ include("conexao.php");
 
 $emailcli = mysqli_real_escape_string($conexao, $_POST['email_cadastro']);
 $nomecli = mysqli_real_escape_string($conexao, $_POST['nome_cadastro']);
-$enderecocli = mysqli_real_escape_string($conexao, $_POST['ende_cadastro']);
-$estadocli = mysqli_real_escape_string($conexao, $_POST['estado_cadastro']);
-$cidadecli = mysqli_real_escape_string($conexao, $_POST['cidade_cadastro']);
-$cepcli = mysqli_real_escape_string($conexao, $_POST['cep_cadastro']);
+$telefonecli = mysqli_real_escape_string($conexao, $_POST['telefone_cadastro']);
 $cpfcli = mysqli_real_escape_string($conexao, $_POST['cpf_cadastro']);
 $senhacli = mysqli_real_escape_string($conexao, $_POST['senha_cadastro']);
+//BANCO DATAS AQUI
+$cepcli = mysqli_real_escape_string($conexao, $_POST['cep_cadastro']);
+$logradourocli = mysqli_real_escape_string($conexao, $_POST['logradouro_cadastro']);
+$numerocli = mysqli_real_escape_string($conexao, $_POST['numero_casa_cadastro']);
+$complementocli = mysqli_real_escape_string($conexao, $_POST['complemento_cadastro']);
+$bairrocli = mysqli_real_escape_string($conexao, $_POST['bairro_cadastro']);
+$cidadecli = mysqli_real_escape_string($conexao, $_POST['cidade_cadastro']);
+$estadocli = mysqli_real_escape_string($conexao, $_POST['estado_cadastro']);
+
+
 
 $sql = "select count(*) as total from tb_cliente where cli_email = '$emailcli'";
 $result = mysqli_query($conexao, $sql);
@@ -23,7 +30,8 @@ if($row['total'] == 1){
     exit;
 }
 
-$sql = "insert into tb_cliente(cli_email, cli_nome, cli_endereco, cli_cidade, cli_cep, cli_cpf, cli_senha, cod_empresa) values ('$emailcli', '$nomecli', '$enderecocli', '$cidadecli', '$cepcli', '$cpfcli', '$senhacli', '1')";
+$sql = "insert into tb_cliente(cli_email, cli_nome, cli_telefone, cli_cpf, cli_senha, cli_cep, cli_logradouro, cli_num_casa, cli_complemento, cli_bairro, cli_cidade, cli_estado, cod_empresa) values 
+                                ('$emailcli', '$nomecli', '$telefonecli','$cpfcli','$senhacli','$cepcli','$logradourocli','$numerocli','$complementocli','$bairrocli','$cidadecli','$estaddocli','1')";
 
 //CADASTRO CONCLUÍDO
 if($conexao -> query($sql) === true){

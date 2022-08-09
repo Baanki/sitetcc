@@ -10,7 +10,9 @@ include('includes/conexao.php');
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <script type="text/javascript" src="scripttcc.js"></script>
     <!--<script type="text/javascript" src="estados.js"></script>-->
-    <script async refer src="api/cep.js"></script>
+    <script type="text/javascript" src="api/cep.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.mask.js"></script>
     <title>Drip</title>
 </head>
 <body bgcolor="E8E8E8"> 
@@ -95,33 +97,48 @@ include('includes/conexao.php');
                 endif;
                 unset($_SESSION['usuario_existe'])
             ?>
-
-                <form id="form_concluido" action="includes/cadastrar.php" method="POST">                
-                    <label for="email_cadastro" class="texto_campo">E-mail:</label>
-                        <input class="cadastro_campo" type="email" name="email_cadastro" id="email_cadastro">
-                    <label for="nome_cadastro" class="texto_campo">Nome:</label>
-                        <input class="cadastro_campo" type="text" name="nome_cadastro" id="nome_cadastro">
-                    <label for="rua_cadastro" class="texto_campo">Rua:</label>
-                        <input class="cadastro_campo" type="text" name="rua_cadastro" id="rua_cadastro">
-                    <div class="cadastro_ladoa">
-                        <label for="estado_cadastro" class="texto_campo">Estado:</label>
-                            <input class="cadastro_campo" type="text" name="estado_cadastro" id="estado_cadastro">    
-                        
+                <form id="form_concluido" action="includes/cadastrar.php" method="POST"> 
+                    <div class="cadastro_ladoa">        
+                        <label for="nome_cadastro" class="texto_campo">Nome:</label>
+                            <input class="cadastro_campo" type="text" name="nome_cadastro" id="nome_cadastro">       
+                        <label for="email_cadastro" class="texto_campo">E-mail:</label>
+                            <input class="cadastro_campo" type="email" name="email_cadastro" id="email_cadastro">
+                        <label for="telefone_cadastro" class="texto_campo">Telefone:</label>
+                            <input class="cadastro_campo" type="text" name="telefone_cadastro" id="telefone_cadastro">
+                        <div class="cadastro_ladoin_a">
+                            <label for="cpf_cadastro" class="texto_campo">CPF:</label>
+                                <input class="cadastro_campo2" type="text" name="cpf_cadastro" id="cpf_cadastro">
+                            <label for="senha_cadastro" class="texto_campo">Senha:</label>
+                                <input class="cadastro_campo" type="password" name="senha_cadastro">
+                        </div>
+                        <div class="cadastro_ladoin_b">
+                            <label for="data_cadastro" class="texto_campo">Data de Nascimento:</label>
+                                <input class="cadastro_campo" type="text" name="data_cadastro" id="data_cadastro";>
+                            <label for="senha_cadastro2" class="texto_campo">Confirmar Senha:</label>
+                                <input class="cadastro_campo" type="password" name="senha_cadastro2">
+                        </div>
+                    </div>
+                        <div class="cadastro_ladob">
                         <label for="cep_cadastro" class="texto_campo">CEP:</label>
                             <input class="cadastro_campo2" type="text" name="cep_cadastro" id="cep_cadastro" value="" onblur="pesquisacep(this.value);">
-                        <label for="senha_cadastro" class="texto_campo">Senha:</label>
-                            <input class="cadastro_campo" type="password" name="senha_cadastro">  
-                    </div>
-                    <div class="cadastro_ladob">
-                        <label for="cidade_cadastro" class="texto_campo">Cidade:</label>
-                            <input class="cadastro_campo2" type="text" name="cidade_cadastro" id="cidade_cadastro">    
-
-                        <label for="cpf_cadastro" class="texto_campo">CPF:</label>
-                            <input class="cadastro_campo2" type="text" name="cpf_cadastro">
-                        <label for="bairro_cadastro" class="texto_campo">Bairro:</label>
-                            <input class="cadastro_campo" type="text" name="bairro_cadastro" id="bairro_cadastro">  
-                    </div>  
-                    <input class="submit_campo" style="margin-top: 20px;" type="submit" name="entrar_cadastro" value="Cadastrar">            
+                        <label for="logradouro_cadastro" class="texto_campo">Logradouro:</label>
+                            <input class="cadastro_campo" type="text" name="logradouro_cadastro" id="logradouro_cadastro">
+                        <div class="cadastro_ladoin_a">
+                            <label for="numero_casa_cadastro" class="texto_campo">Número:</label>
+                                <input class="cadastro_campo" type="text" name="numero_casa_cadastro">
+                            <label for="bairro_cadastro" class="texto_campo">Bairro:</label>
+                                <input class="cadastro_campo" type="text" name="bairro_cadastro" id="bairro_cadastro"> 
+                            <label for="estado_cadastro" class="texto_campo">Estado:</label>
+                                <input class="cadastro_campo" type="text" name="estado_cadastro" id="estado_cadastro">   
+                        </div>
+                        <div class="cadastro_ladoin_b">
+                            <label for="complemento_cadastro" class="texto_campo">Complemento:</label>
+                                <input class="cadastro_campo" type="text" name="complemento_casa">
+                            <label for="cidade_cadastro" class="texto_campo">Cidade:</label>
+                                <input class="cadastro_campo" type="text" name="cidade_cadastro" id="cidade_cadastro">  
+                                <input class="submit_campo" style="margin-top: 15px; width: 90%;" type="submit" name="entrar_cadastro" value="Cadastrar"> 
+                        </div> 
+                    </div>        
                 </form>
             </div>
     </header>
@@ -138,6 +155,18 @@ include('includes/conexao.php');
             tela_login.style.display = 'none';
             tela_cadastro.style.display = 'block';
         })
+       
+        var botao_aqui_cad_conc = document.querySelector('.texto_cadastro_concluido_aqui')
+        botao_aqui_cad_conc.addEventListener('click', function(){
+            tela_cadastro.style.display = 'none';
+            tela_login.style.display = 'block';
+        })
+        $(document).ready(function(){
+                $('#telefone_cadastro').mask('(99) 99999-9999');
+                $('#data_cadastro').mask('99/99/9999');
+                $('#cpf_cadastro').mask('999.999.999-99');
+                $('#cep_cadastro').mask('99999-999');
+            });
     </script>
     <!-- Aparecer tela de login -->
 </body>

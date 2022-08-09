@@ -1,6 +1,6 @@
 function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
-            document.getElementById('rua_cadastro').value=("");
+            document.getElementById('logradouro_cadastro').value=("");
             document.getElementById('bairro_cadastro').value=("");
             document.getElementById('cidade_cadastro').value=("");
             document.getElementById('estado_cadastro').value=("");
@@ -9,7 +9,7 @@ function limpa_formulário_cep() {
     function meu_callback(conteudo) {
         if (!("erro" in conteudo)) {
             //Atualiza os campos com os valores.
-            document.getElementById('rua_cadastro').value=(conteudo.logradouro);
+            document.getElementById('logradouro_cadastro').value=(conteudo.logradouro);
             document.getElementById('bairro_cadastro').value=(conteudo.bairro);
             document.getElementById('cidade_cadastro').value=(conteudo.localidade);
             document.getElementById('estado_cadastro').value=(conteudo.uf);
@@ -36,7 +36,7 @@ function limpa_formulário_cep() {
             if(validacep.test(cep)) {
 
                 //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('rua_cadastro').value="...";
+                document.getElementById('logradouro_cadastro').value="...";
                 document.getElementById('bairro_cadastro').value="...";
                 document.getElementById('cidade_cadastro').value="...";
                 document.getElementById('estado_cadastro').value="...";
