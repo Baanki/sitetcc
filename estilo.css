@@ -319,7 +319,8 @@ header{
             text-decoration: none;
             color: black;
             border: none;
-            background-color: red;
+            margin-left: 5px;
+            background-color: white;
         }.texto_cadastro_concluido_aqui:hover{
             text-decoration: underline;
         }
