@@ -2,12 +2,14 @@
 session_start();
 include("conexao.php");
 
+//TABELA tb_cliente
 $emailcli = mysqli_real_escape_string($conexao, $_POST['email_cadastro']);
 $nomecli = mysqli_real_escape_string($conexao, $_POST['nome_cadastro']);
 $telefonecli = mysqli_real_escape_string($conexao, $_POST['telefone_cadastro']);
 $cpfcli = mysqli_real_escape_string($conexao, $_POST['cpf_cadastro']);
 $senhacli = mysqli_real_escape_string($conexao, $_POST['senha_cadastro']);
-//BANCO DATAS AQUI
+$datacli = mysqli_real_escape_string($conexao, $_POST['data_cadastro']);
+//TABELA tb_endereco
 $cepcli = mysqli_real_escape_string($conexao, $_POST['cep_cadastro']);
 $logradourocli = mysqli_real_escape_string($conexao, $_POST['logradouro_cadastro']);
 $numerocli = mysqli_real_escape_string($conexao, $_POST['numero_casa_cadastro']);
@@ -30,13 +32,20 @@ if($row['total'] == 1){
     exit;
 }
 
-$sql = "insert into tb_cliente(cli_email, cli_nome, cli_telefone, cli_cpf, cli_senha, cli_cep, cli_logradouro, cli_num_casa, cli_complemento, cli_bairro, cli_cidade, cli_estado, cod_empresa) values 
-                                ('$emailcli', '$nomecli', '$telefonecli','$cpfcli','$senhacli','$cepcli','$logradourocli','$numerocli','$complementocli','$bairrocli','$cidadecli','$estaddocli','1')";
+$sql = "insert into tb_cliente(cli_email, cli_nome, cli_telefone, cli_cpf, cli_senha, cli_data_nasc ,cod_empresa) values 
+                                ('$emailcli', '$nomecli', '$telefonecli','$cpfcli','$senhacli','$datacli',1)";
+
 
 //CADASTRO CONCLUÍDO
 if($conexao -> query($sql) === true){
+    $getcod_cli = "select cod_cliente from tb_cliente where cli_email = '$emailcli'";
+    $getcod_cli_query = mysqli_query($conexao, $getcod_cli);
+    while ($codcli = $getcod_cli_query->fetch_assoc()){};
+        $sql2 = "insert into tb_endereco(end_cep, end_logradouro, end_numero, end_complemento, end_bairro, end_cidade, end_estado, fk_cliente_cod_cliente) values
+                                    ('$cepcli','$logradourocli','$numerocli','$complementocli','$bairrocli','$cidadecli','$estadocli',5)";
+        $conexao -> query($sql2);
+    }
     $_SESSION['cadastro_concluido'] = true;
-}
 
 $conexao->close();
 

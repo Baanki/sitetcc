@@ -133,7 +133,7 @@ include('includes/conexao.php');
                         </div>
                         <div class="cadastro_ladoin_b">
                             <label for="complemento_cadastro" class="texto_campo">Complemento:</label>
-                                <input class="cadastro_campo" type="text" name="complemento_casa">
+                                <input class="cadastro_campo" type="text" name="complemento_cadastro" id="complemento_cadastro">
                             <label for="cidade_cadastro" class="texto_campo">Cidade:</label>
                                 <input class="cadastro_campo" type="text" name="cidade_cadastro" id="cidade_cadastro">  
                                 <input class="submit_campo" style="margin-top: 15px; width: 90%;" type="submit" name="entrar_cadastro" value="Cadastrar"> 
