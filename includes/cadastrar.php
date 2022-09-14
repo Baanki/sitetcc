@@ -35,20 +35,29 @@ if($row['total'] == 1){
 $sql = "insert into tb_cliente(cli_email, cli_nome, cli_telefone, cli_cpf, cli_senha, cli_data_nasc ,cod_empresa) values 
                                 ('$emailcli', '$nomecli', '$telefonecli','$cpfcli','$senhacli','$datacli',1)";
 
-
+$sql2 = "insert into tb_endereco(end_cep, end_logradouro, end_numero, end_complemento, end_bairro, end_cidade, end_estado) values
+                                ('$cepcli', '$logradourocli', '$numerocli', '$complementocli', '$bairrocli', '$cidadecli','$estadocli')";
 //CADASTRO CONCLUÍDO
-if($conexao -> query($sql) === true){
-    $getcod_cli = "select cod_cliente from tb_cliente where cli_email = '$emailcli'";
-    $getcod_cli_query = mysqli_query($conexao, $getcod_cli);
-    while ($codcli = $getcod_cli_query->fetch_assoc()){};
-        $sql2 = "insert into tb_endereco(end_cep, end_logradouro, end_numero, end_complemento, end_bairro, end_cidade, end_estado, fk_cliente_cod_cliente) values
-                                    ('$cepcli','$logradourocli','$numerocli','$complementocli','$bairrocli','$cidadecli','$estadocli',5)";
-        $conexao -> query($sql2);
+if($conexao -> query($sql2) === true){
+    function_alert("Cadastro um realizado");
+    if($conexao -> query($sql2) === true){
+        function_alert("Cadastro dois realizado");
+    };
+    //$getcod_cli = "select cod_cliente from tb_cliente where cli_email = '$emailcli'";
+    //$getcod_cli_query = mysqli_query($conexao, $getcod_cli);
+    //$teste = mysqli_fetch_assoc($getcod_cli_query);
+           
+    
     }
     $_SESSION['cadastro_concluido'] = true;
 
 $conexao->close();
 
-header('location:\tcc/index.php');
+//header('location:\tcc/index.php');
 exit;
+
+
+function function_alert($msg){
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+}
 ?>
