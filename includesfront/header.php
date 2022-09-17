@@ -4,10 +4,9 @@ include('../includesback/conexao.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <!-- Meta tags Obrigatórias -->
-    <link rel="stylesheet" type="text/css" href="../estilo.css">
+    <link rel="stylesheet" type="text/css" href="../styles/header.css">
     <script type="text/javascript" src="scripttcc.js"></script>
     <!--<script type="text/javascript" src="estados.js"></script>-->
     <script type="text/javascript" src="../api/cep.js"></script>
@@ -79,18 +78,20 @@ include('../includesback/conexao.php');
             
             <div class="tela_cadastro">
             <p class="texto_login">CADASTRO</p>  
+             <!-- CADASTRO CONCLUÍDO -->  
             <?php
                 if(isset($_SESSION['cadastro_concluido'])):
             ?>
                 <style>.tela_cadastro{display: block;}</style>
                 <div class="cadastro_concluido_tela">
-                    <p class="texto_cadastro_concluido">Conta criada com sucesso!!<br>Para acessar clique<button class="texto_cadastro_concluido_aqui">aqui</a></p>
+                    <p class="texto_cadastro_concluido">Conta criada com sucesso!!<br>Para acessar clique<button class="texto_cadastro_concluido_aqui">aqui</button></p>
                     <style>#form_concluido{display: none}</style>
                 </div>
             <?php
                 endif;
                 unset($_SESSION['cadastro_concluido'])
             ?>
+            <!-- CADASTRO CONCLUÍDO -->  
             <?php
                 if(isset($_SESSION['usuario_existe'])):
             ?>
