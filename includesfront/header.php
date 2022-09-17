@@ -1,18 +1,18 @@
 <?php
 session_start();
-include('includes/conexao.php');
+include('../includesback/conexao.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <!-- Meta tags Obrigatórias -->
-    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="stylesheet" type="text/css" href="../estilo.css">
     <script type="text/javascript" src="scripttcc.js"></script>
     <!--<script type="text/javascript" src="estados.js"></script>-->
-    <script type="text/javascript" src="api/cep.js"></script>
+    <script type="text/javascript" src="../api/cep.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="jquery.mask.js"></script>
+    <script type="text/javascript" src="../jquery.mask.js"></script>
     <script>$(document).ready(function(){
                 $('#telefone_cadastro').mask('(99) 99999-9999');
                 $('#data_cadastro').mask('99/99/9999');
@@ -26,7 +26,7 @@ include('includes/conexao.php');
     <!-- MENU -->
     
     <header>
-        <img id="logo" src="img/logotcc2.jpg" alt="">
+        <img id="logo" src="../img/logotcc2.jpg" alt="">
         <nav class="menu_header">
             <a href="index.php" class="botoes_header">CAMISETAS</a>
             <a href="#" class="botoes_header">JAQUETAS</a>
@@ -45,7 +45,7 @@ include('includes/conexao.php');
                 unset($_SESSION['login_completo']);
             ?>
             <button id="botao_login"><b>Login</b> ou <b>Cadastre-se</b></button>
-            <a href="#"><img src="img/cart_header_white.png" onmouseover="effect_market_cartover()" onmouseout="effect_market_cartout()" id="botao_carrinho" alt=""></a>
+            <a href="#"><img src="../img/cart_header_white.png" onmouseover="effect_market_cartover()" onmouseout="effect_market_cartout()" id="botao_carrinho" alt=""></a>
         </div>
 
     <!-- Tela de login/cadastro -->
@@ -62,7 +62,7 @@ include('includes/conexao.php');
                     endif;
                     unset($_SESSION['login_incompleto']);
                     ?>
-                        <form action="includes/login.php" method="POST">
+                        <form action="../includesback/login.php" method="POST">
                             <label for="email_login" class="texto_campo">E-mail:
                                 <input class="login_campo" type="email" name="email_login">
                             </label>
@@ -103,7 +103,7 @@ include('includes/conexao.php');
                 endif;
                 unset($_SESSION['usuario_existe'])
             ?>
-                <form id="form_concluido" action="includes/cadastrar.php" method="POST"> 
+                <form id="form_concluido" action="../includesback/cadastrar.php" method="POST"> 
                     <div class="cadastro_ladoa">        
                         <label for="nome_cadastro" class="texto_campo">Nome:</label>
                             <input class="cadastro_campo" type="text" name="nome_cadastro" id="nome_cadastro">       

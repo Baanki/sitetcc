@@ -50,7 +50,7 @@ if($conexao -> query($sql) === true){
 
 $conexao->close();
 
-header('location:\tcc/index.php');
+header('location:\tcc/pags/index.php');
 exit;
 
 ?>

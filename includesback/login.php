@@ -23,11 +23,11 @@ $row = mysqli_num_rows($resultado);
 if($row == 1){
     $_SESSION['login_completo'] = true;
     $_SESSION['usuario_cli'] = $usuario_cli;
-    header('location: \tcc/index.php');
+    header('location: \tcc/pags/index.php');
     exit();
 } else{
     $_SESSION['login_incompleto'] = true;
-    header('location: \tcc/index.php');
+    header('location: \tcc/pags/index.php');
     exit();
 }
 ?>
