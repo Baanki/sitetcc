@@ -38,8 +38,8 @@ $sql = "insert into tb_cliente(cli_email, cli_nome, cli_telefone, cli_cpf, cli_s
 //CADASTRO CONCLUÍDO
 if($conexao -> query($sql) === true){
     $getcod_cli = "select cod_cliente from tb_cliente where cli_email = '$emailcli'";
-    $getcod_cli_query = mysqli_query($conexao, $getcod_cli);
-    while ($row = mysqli_fetch_assoc($getcod_cli_query)){
+    $query = mysqli_query($conexao, $getcod_cli);
+    while ($row = mysqli_fetch_assoc($query)){
         $codcli = $row['cod_cliente'];
     }
     $sql2 = "insert into tb_endereco(end_cep, end_logradouro, end_numero, end_complemento, end_bairro, end_cidade, end_estado, fk_cod_cliente) values

@@ -13,6 +13,12 @@ include('includes/conexao.php');
     <script type="text/javascript" src="api/cep.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="jquery.mask.js"></script>
+    <script>$(document).ready(function(){
+                $('#telefone_cadastro').mask('(99) 99999-9999');
+                $('#data_cadastro').mask('99/99/9999');
+                $('#cpf_cadastro').mask('999.999.999-99');
+                $('#cep_cadastro').mask('99999-999');
+            }); </script>
     <title>Drip</title>
 </head>
 <body bgcolor="E8E8E8"> 
@@ -161,12 +167,7 @@ include('includes/conexao.php');
             tela_cadastro.style.display = 'none';
             tela_login.style.display = 'block';
         })
-        $(document).ready(function(){
-                $('#telefone_cadastro').mask('(99) 99999-9999');
-                $('#data_cadastro').mask('99/99/9999');
-                $('#cpf_cadastro').mask('999.999.999-99');
-                $('#cep_cadastro').mask('99999-999');
-            });
+        
     </script>
     <!-- Aparecer tela de login -->
 </body>
