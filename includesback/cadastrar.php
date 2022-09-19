@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 <?php
 session_start();
 include("conexao.php");
@@ -27,8 +29,8 @@ $row = mysqli_fetch_assoc($result);
 
 //SE O USUÁRIO JÁ EXISTIR
 if($row['total'] == 1){
+    header('location:\tcc/pags/index.php');
     $_SESSION['usuario_existe'] = true;
-    header('location:\tcc/index.php');
     exit;
 }
 
@@ -44,9 +46,9 @@ if($conexao -> query($sql) === true){
     }
     $sql2 = "insert into tb_endereco(end_cep, end_logradouro, end_numero, end_complemento, end_bairro, end_cidade, end_estado, fk_cod_cliente) values
                                     ('$cepcli', '$logradourocli', '$numerocli', '$complementocli', '$bairrocli', '$cidadecli','$estadocli','$codcli')";
-    $conexao -> query($sql2); 
-}
+    $conexao -> query($sql2);
     $_SESSION['cadastro_concluido'] = true;
+}
 
 $conexao->close();
 
@@ -54,3 +56,4 @@ header('location:\tcc/pags/index.php');
 exit;
 
 ?>
+</html>

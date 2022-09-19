@@ -7,7 +7,7 @@ include('../includesback/conexao.php');
 <head>
     <!-- Meta tags Obrigatórias -->
     <link rel="stylesheet" type="text/css" href="../styles/header.css">
-    <script type="text/javascript" src="scripttcc.js"></script>
+    <script type="text/javascript" src="../scripttcc.js"></script>
     <script type="text/javascript" src="../api/cep.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="../jquery.mask.js"></script>
@@ -20,7 +20,6 @@ include('../includesback/conexao.php');
     <title>Drip</title>
 </head>
 <body bgcolor="E8E8E8"> 
-
     <!-- MENU -->
     
     <header>
@@ -76,33 +75,22 @@ include('../includesback/conexao.php');
             <!-- Form Cadastro -->                   
             
             <div class="tela_cadastro">
+
             <p class="texto_login">CADASTRO</p>  
-             <!-- CADASTRO CONCLUÍDO -->  
-            <?php
-                if(isset($_SESSION['cadastro_concluido'])):
-            ?>
-                <style>.tela_cadastro{display: block;}</style>
-                <div class="cadastro_concluido_tela">
-                    <p class="texto_cadastro_concluido">Conta criada com sucesso!!<br>Para acessar clique<button class="texto_cadastro_concluido_aqui">aqui</button></p>
-                    <style>#form_concluido{display: none}</style>
-                </div>
-            <?php
-                endif;
-                unset($_SESSION['cadastro_concluido'])
-            ?>
-            <!-- CADASTRO CONCLUÍDO -->  
+        
+            <!-- Usuário existe -->  
             <?php
                 if(isset($_SESSION['usuario_existe'])):
-            ?>
+            ?>              
                 <style>.tela_cadastro{display: block;}</style>
-                <div class="cadastro_concluido_tela">
-                <p class="texto_cadastro_concluido">E-mail já existente, escolha outro</p>
+                <div class="cadastro_concluido_tela"  style="position: relative;">
+                    <p class="texto_cadastro_concluido">E-mail já existente, escolha outro</p>
                 </div>
-
             <?php
                 endif;
                 unset($_SESSION['usuario_existe'])
             ?>
+            <!-- Usuário existe -->  
                 <form id="form_concluido" action="../includesback/cadastrar.php" method="POST"> 
                     <div class="cadastro_ladoa">        
                         <label for="nome_cadastro" class="texto_campo">Nome:</label>
@@ -146,6 +134,7 @@ include('../includesback/conexao.php');
                         </div> 
                     </div>        
                 </form>
+                
             </div>
     </header>
     <!-- Aparecer tela de login -->
@@ -173,5 +162,5 @@ include('../includesback/conexao.php');
 </body>
 </html>
 <?php
- 
+
 ?> 

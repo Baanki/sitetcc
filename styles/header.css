@@ -295,12 +295,16 @@ header{
 
         /*SESSION CADASTRO CONCLUÍDO*/
         .cadastro_concluido_tela{
+            background-color: white;
+            position: absolute;
             width: 70%;
             margin-left: 15%;
             border: solid;
             border-radius: 5px;
             border-width: 2px;
             text-align: center;
+            top: 50%;
+            transform: translate(0%, -50%);
         }
         .texto_cadastro_concluido{
             font-family: Arial;
