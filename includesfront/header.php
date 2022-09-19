@@ -8,7 +8,6 @@ include('../includesback/conexao.php');
     <!-- Meta tags Obrigatórias -->
     <link rel="stylesheet" type="text/css" href="../styles/header.css">
     <script type="text/javascript" src="scripttcc.js"></script>
-    <!--<script type="text/javascript" src="estados.js"></script>-->
     <script type="text/javascript" src="../api/cep.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="../jquery.mask.js"></script>
