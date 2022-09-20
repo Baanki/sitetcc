@@ -1,0 +1,21 @@
+.carousel{
+    box-shadow: 2px 2px 4px black;
+    background-color: red;
+    width: 75%;
+    height: 400px;
+    align-items: center;
+    overflow: hidden;
+    margin-left: 12.5%;
+}
+
+.container_carousel{
+    display: flex;
+    transition: transform 1s ease-in-out;
+    transform: translateX(0);
+}
+
+.imagem_carousel{
+    object-fit: cover;
+    width: 100%;
+    height: 400px;
+}

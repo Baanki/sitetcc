@@ -11,6 +11,7 @@ include('../includesback/conexao.php');
     <script type="text/javascript" src="../api/cep.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="../jquery.mask.js"></script>
+    
     <script>$(document).ready(function(){
                 $('#telefone_cadastro').mask('(99) 99999-9999');
                 $('#data_cadastro').mask('99/99/9999');
