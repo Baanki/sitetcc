@@ -1,5 +1,9 @@
+.carousel_marca{
+    background-color: white;
+    height: auto;
+    width: 100%;
+}
 .carousel{
-    box-shadow: 2px 2px 4px black;
     background-color: red;
     width: 75%;
     height: 400px;

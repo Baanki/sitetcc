@@ -1,6 +1,7 @@
 body{
     margin: 0px;
     padding: 0px; 
+    
 }
 
 header{
@@ -8,13 +9,12 @@ header{
     height: 8em;
     width: 100%;
     margin: none;
-  
 }
 
 /*MENU*/
     #logo{
         height: 100%;
-        border-right: solid;
+        margin-left: 5%;
         border-color: white;
         border-width: 1px;
         float: left;

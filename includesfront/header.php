@@ -20,7 +20,7 @@ include('../includesback/conexao.php');
             }); </script>
     <title>Drip</title>
 </head>
-<body bgcolor="E8E8E8"> 
+<body bgcolor="white"> 
     <!-- MENU -->
     
     <header>
