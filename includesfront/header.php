@@ -7,7 +7,7 @@ include('../includesback/conexao.php');
 <head>
     <!-- Meta tags Obrigatórias -->
     <link rel="stylesheet" type="text/css" href="../styles/header.css">
-    <script type="text/javascript" src="../scripttcc.js"></script>
+    <script type="text/javascript" src="../scripttcc.js" defer  ></script>
     <script type="text/javascript" src="../api/cep.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="../jquery.mask.js"></script>
@@ -140,19 +140,20 @@ include('../includesback/conexao.php');
     </header>
     <!-- Aparecer tela de login -->
     <script>
-        var tela_login = document.querySelector('.tela_login')
-        var botao_login = document.getElementById('botao_login')
+        
+        const tela_login = document.querySelector('.tela_login')
+        const botao_login = document.getElementById('botao_login')
         botao_login.addEventListener('click', function(){
             tela_login.style.display = 'block';
         })
-        var botao_cadastro = document.querySelector('.botao_cadastro')
-        var tela_cadastro = document.querySelector('.tela_cadastro')
+        const botao_cadastro = document.querySelector('.botao_cadastro')
+        const tela_cadastro = document.querySelector('.tela_cadastro')
         botao_cadastro.addEventListener('click', function(){
             tela_login.style.display = 'none';
             tela_cadastro.style.display = 'block';
         })
-       
-        var botao_aqui_cad_conc = document.querySelector('.texto_cadastro_concluido_aqui')
+
+        const botao_aqui_cad_conc = document.querySelector('.texto_cadastro_concluido_aqui')
         botao_aqui_cad_conc.addEventListener('click', function(){
             tela_cadastro.style.display = 'none';
             tela_login.style.display = 'block';

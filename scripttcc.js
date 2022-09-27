@@ -6,4 +6,3 @@ function effect_market_cartover(){
 function effect_market_cartout(){
     document.getElementById("botao_carrinho").src="../img/cart_header_white.png";
 }
-

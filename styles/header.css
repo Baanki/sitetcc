@@ -14,7 +14,7 @@ header{
 /*MENU*/
     #logo{
         height: 100%;
-        margin-left: 5%;
+        margin-left: 2%;
         border-color: white;
         border-width: 1px;
         float: left;
@@ -164,6 +164,7 @@ header{
         border-style: solid;
         border-radius: 30px;
         border-color: white;
+        z-index: 2;
     }  
         .texto_login{
             font-family: Arial;
@@ -250,6 +251,8 @@ header{
             border-style: solid;
             border-radius: 30px;
             border-color: white;
+            z-index: 2;
+    
         }
         .cadastro_campo{
             width: 98%;
@@ -261,6 +264,7 @@ header{
             display: flex; 
             font-size: 1em;
             border-width: 1px;
+            z-index: 2;
         }
         .cadastro_campo2{
             width: 97%;

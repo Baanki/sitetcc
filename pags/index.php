@@ -18,10 +18,45 @@ include_once('../includesfront/header.php');
         </div>
     </div>
     <section class="produtos">
-        <div class="teste">
-
-
-        </div>
+        <h1 class="produtos_lancamento">LANÇAMENTOS</h1>
+        <div class="produtos_grid">
+            <div class="produto_itens">
+                <picture>
+                    <a href="#">
+                        <img src="../img/teste_produto.jpg" class="produto_imagem">
+                    </a>
+                </picture>
+                <p class="produto_nome">Moletom Pica</p>
+                <p class="produto_preco">R$500,00</p>
+            </div>
+            <div class="produto_itens">
+                <picture>
+                    <a href="#">
+                        <img src="../img/teste_produto.jpg" class="produto_imagem">
+                    </a>
+                </picture>
+                <p class="produto_nome">Moletom Pica</p>
+                <p class="produto_preco">R$500,00</p>
+            </div>
+            <div class="produto_itens">
+                <picture>
+                    <a href="#">
+                        <img src="../img/teste_produto.jpg" class="produto_imagem">
+                    </a>
+                </picture>
+                <p class="produto_nome">Moletom Pica</p>
+                <p class="produto_preco">R$500,00</p>
+            </div>
+            <div class="produto_itens">
+                <picture>
+                    <a href="#">
+                        <img src="../img/teste_produto.jpg" class="produto_imagem">
+                    </a>
+                </picture>
+                <p class="produto_nome">Moletom Pica</p>
+                <p class="produto_preco">R$500,00</p>
+            </div>
+        </div>    
     </section>
 </body>
 <script>
