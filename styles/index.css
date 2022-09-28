@@ -40,8 +40,8 @@
 .produto_itens{
     background-color: ; /*erro aqui*/
     height: auto;
-    width: 300px;
     margin-left: 5%;
+    margin-right: 5%;
 }
 .produto_imagem{
     width: 100%;
