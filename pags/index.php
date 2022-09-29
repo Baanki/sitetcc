@@ -8,12 +8,12 @@ include_once('../includesfront/header.php');
     <script src="../scripts/carousel.js" defer></script>
 </head>
 <?php
-
-
-
-
-
-    $query = 'select prod_nome from tb_produto where cod_produto=1';
+    $query = 'select max(prod_data), * from tb_produtos group by prod_data';
+    $aaa = mysqli_query($conexao, $query);
+    while ($row = mysqli_fetch_assoc($query)){
+        $nome = $row['prod_nome'];
+    }
+    /*/ $query = 'select prod_nome from tb_produto where cod_produto=1';
     $aaa = mysqli_query($conexao, $query);
     $query2 = 'select prod_preco from tb_produto where cod_produto=1';
     $aaa2 = mysqli_query($conexao, $query2);
@@ -24,7 +24,7 @@ include_once('../includesfront/header.php');
         $preco = $row2['prod_preco'];
         $img = $row3['prod_imagem'];
     }
-    
+    /*/
 ?>
 <body>
     <div class="carousel_marca">
@@ -42,7 +42,7 @@ include_once('../includesfront/header.php');
             <div class="produto_itens">
                 <picture>
                     <a href="#">
-                        <img src="http://localhost/tcc/img/teste_produto.jpg" class="produto_imagem">
+                        <img src="<?php echo($img)?>" class="produto_imagem">
                     </a>
                 </picture>
                 <p class="produto_nome"><?php echo($nome)?></p>
@@ -51,7 +51,7 @@ include_once('../includesfront/header.php');
             <div class="produto_itens">
                 <picture>
                     <a href="#">
-                        <img src="<?php echo($img) ?>" class="produto_imagem">
+                        <img src="../img/teste_produto3.jpg" class="produto_imagem">
                     </a>
                 </picture>
                 <p class="produto_nome">Moletom Pica</p>
