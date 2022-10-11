@@ -7,29 +7,7 @@ include_once('../includesfront/header.php');
     <link rel="stylesheet" type="text/css" href="../styles/index.css">
     <script src="../scripts/carousel.js" defer></script>
 </head>
-<?php
-    $query = 'select * from tb_produto where prod_data <= (select max(prod_data) from tb_produto) order by prod_data desc limit 4';
-        $aaa = mysqli_query($conexao, $query);
-        if ($aaa === false){
-        echo("Erro ao puxar do banco de dados");
-    }
 
-    while ($row = mysqli_fetch_assoc($aaa)){
-    
-        $nome = $row['prod_nome'];
-        $nome2 = $row['prod_nome'];
-        $img = $row['prod_imagem'];
-        $preco = $row['prod_preco'];
-        $prod_data = $row['prod_data'];
-        echo ($nome);echo "<br>";
-       
-        }
-        
-        foreach ($ as $teste){
-            echo ($teste);
-        }
-    
-?>
 <body>
     <div class="carousel_marca">
         <div class="carousel">
@@ -43,42 +21,32 @@ include_once('../includesfront/header.php');
     <section class="produtos">
         <h1 class="produtos_lancamento">LANÇAMENTOS</h1>
         <div class="produtos_grid">
-            <div class="produto_itens">
-                <picture>
-                    <a href="#">
-                        <img src="<?php echo($img)?>" class="produto_imagem">
-                    </a>
-                </picture>
-                <p class="produto_nome"><?php echo($nome)?></p>
-                <p class="produto_preco">R$ <?php echo($preco)?></p>
-            </div>
-            <div class="produto_itens">
-                <picture>
-                    <a href="#">
-                        <img src="../img/teste_produto3.jpg" class="produto_imagem">
-                    </a>
-                </picture>
-                <p class="produto_nome"><?php echo($nome2)?></p>
-                <p class="produto_preco">R$500,00</p>
-            </div>
-            <div class="produto_itens">
-                <picture>
-                    <a href="#">
-                        <img src="../img/teste_produto3.jpg" class="produto_imagem">
-                    </a>
-                </picture>
-                <p class="produto_nome">Moletom Pica</p>
-                <p class="produto_preco">R$500,00</p>
-            </div>
-            <div class="produto_itens">
-                <picture>
-                    <a href="#">
-                        <img src="../img/teste_produto3.jpg" class="produto_imagem">
-                    </a>
-                </picture>
-                <p class="produto_nome">Moletom Pica</p>
-                <p class="produto_preco">R$500,00</p>
-            </div>
+        <?php
+            $query = 'select cod_produto,prod_nome,prod_imagem,prod_preco from tb_produto where prod_data <= (select max(prod_data) from tb_produto) order by prod_data desc limit 4';
+            $aaa = mysqli_query($conexao, $query);
+            if ($aaa === false){
+            echo("Erro ao puxar do banco de dados");
+        }           
+            while ($row = mysqli_fetch_assoc($aaa)){
+                    $nome = $row['prod_nome'];
+                    $img = $row['prod_imagem'];
+                    $preco = $row['prod_preco'];
+                    ?>
+                    <div class="produto_itens">
+                    <picture>
+                        <a href="#">
+                            <img src="<?php echo($img)?>" class="produto_imagem">
+                        </a>
+                    </picture>
+                    <p class="produto_nome"><?php echo($nome)?></p>
+                    <p class="produto_preco">R$ <?php echo($preco)?></p>
+                </div>
+                <?php 
+                }
+                ?>    
+
+
+            
         </div>    
     </section>
 </body>
