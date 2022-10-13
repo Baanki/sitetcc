@@ -24,9 +24,9 @@ include('../includesback/conexao.php');
     <!-- MENU -->
     
     <header>
-        <img id="logo" src="../img/logotcc2.jpg" alt="">
+        <a href="../pags/index.php"><img id="logo" src="../img/logotcc2.jpg" alt=""></a>
         <nav class="menu_header">
-            <a href="index.php" class="botoes_header">CAMISETAS</a>
+            <a href="../pags/camisetas.php" class="botoes_header">CAMISETAS</a>
             <a href="#" class="botoes_header">JAQUETAS</a>
             <a href="#" class="botoes_header">MOLETOM</a>
             <a href="#" class="botoes_header">CALÇAS</a>
@@ -40,7 +40,7 @@ include('../includesback/conexao.php');
                 <button id="botao_login_cliente"><?php echo "Olá " . $_SESSION['usuario_cli']?></button>
             <?php
                 endif;
-                unset($_SESSION['login_completo']);
+                unset($_SESSION['login_completo']);//desativar isso pra manter logado
             ?>
             <button id="botao_login"><b>Login</b> ou <b>Cadastre-se</b></button>
             <a href="#"><img src="../img/cart_header_white.png" onmouseover="effect_market_cartover()" onmouseout="effect_market_cartout()" id="botao_carrinho" alt=""></a>

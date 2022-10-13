@@ -4,19 +4,37 @@ include_once('../includesfront/header.php');
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="stylesheet" type="text/css" href="../styles/index.css">
-    <script src="../scripts/carousel.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="../styles/indexeprodutos.css">
 </head>
 
 <body>
-    <div class="carousel_marca">
-        <div class="carousel">
-            <div class="container_carousel" id="img">
-                <img src="../img/img1carrossel.jpg" class="imagem_carousel">
-                <img src="../img/img2carrossel.jpg" class="imagem_carousel">
-                <img src="../img/img3carrossel.jpg" class="imagem_carousel">
-            </div>  
+    <div class="filtros">
+        <div class="filtros_itens">
+            <input type="checkbox" name="tamanho_p" class="checkbox_filtros">
+                <p class="nomes_checkbox">P</p>  
         </div>
+        <div class="filtros_itens">
+            <input type="checkbox" name="tamanho_p" class="checkbox_filtros">
+                <p class="nomes_checkbox">M</p>  
+        </div>
+        <div class="filtros_itens">
+            <input type="checkbox" name="tamanho_p" class="checkbox_filtros">
+                <p class="nomes_checkbox">G</p>  
+        </div>
+        <div class="filtros_itens">
+            <input type="checkbox" name="tamanho_p" class="checkbox_filtros">
+                <p class="nomes_checkbox">GG</p>  
+        </div>
+        <div class="filtros_itens">
+            <input type="checkbox" name="tamanho_p" class="checkbox_filtros">
+                <p class="nomes_checkbox">GGG</p>  
+        </div>
+    </div>
+    <div class="ordenar">
+        ORDENAR
+        
+
+
     </div>
     <section class="produtos">
         <h1 class="produtos_lancamento">LANÇAMENTOS</h1>
@@ -46,22 +64,7 @@ include_once('../includesfront/header.php');
                 ?>      
         </div>    
     </section>
-    <div class="carousel_marca">
-        <div class="carousel">
-            <div class="container_carousel" id="img">
-                <img src="../img/img1carrossel.jpg" class="imagem_carousel">
-                <img src="../img/img2carrossel.jpg" class="imagem_carousel">
-                <img src="../img/img3carrossel.jpg" class="imagem_carousel">
-            </div>  
-        </div>
-    </div>
     <?php
     include_once('../includesfront/footer.php');
     ?>
 </body>
-
-
-<script>
-
-</script>
-</html>
