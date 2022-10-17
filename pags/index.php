@@ -4,7 +4,7 @@ include_once('../includesfront/header.php');
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="stylesheet" type="text/css" href="../styles/index.css">
+    <link rel="stylesheet" type="text/css" href="../styles/indexeprodutos.css">
     <script src="../scripts/carousel.js" defer></script>
 </head>
 

@@ -27,12 +27,13 @@ include('../includesback/conexao.php');
         <a href="../pags/index.php"><img id="logo" src="../img/logotcc2.jpg" alt=""></a>
         <nav class="menu_header">
             <a href="../pags/camisetas.php" class="botoes_header">CAMISETAS</a>
-            <a href="#" class="botoes_header">JAQUETAS</a>
-            <a href="#" class="botoes_header">MOLETOM</a>
-            <a href="#" class="botoes_header">CALÇAS</a>
-            <a href="#" class="botoes_header">CALÇADOS</a>
+            <a href="../pags/jaquetas.php" class="botoes_header">JAQUETAS</a>
+            <a href="../pags/moletons.php" class="botoes_header">MOLETONS</a>
+            <a href="../pags/calcas.php" class="botoes_header">CALÇAS</a>
+            <a href="../pags/calcados.php" class="botoes_header">CALÇADOS</a>
         </nav>
         <div class="div_login_carrinho">
+            <!-- MENU COM LOGIN -->
             <?php
                 if(isset($_SESSION['login_completo'])):              
             ?>
@@ -40,8 +41,21 @@ include('../includesback/conexao.php');
                 <button id="botao_login_cliente"><?php echo "Olá " . $_SESSION['usuario_cli']?></button>
             <?php
                 endif;
-                unset($_SESSION['login_completo']);//desativar isso pra manter logado
+                //unset($_SESSION['login_completo']);//desativar isso pra manter logado
             ?>
+            <!-- FIM - MENU COM LOGIN -->
+             <!-- MENU COM LOGIN ADMINISTRATIVO -->
+             <?php
+                if(isset($_SESSION['login_adm'])):              
+            ?>
+                <style>#botao_login{display: none;}</style>
+                <button id="botao_login_cliente">Olá Admin</button>
+            <?php
+                endif;
+                //unset($_SESSION['login_adm']);//desativar isso pra manter logado
+            ?>
+
+              <!--FIM - MENU COM LOGIN ADMINISTRATIVO -->
             <button id="botao_login"><b>Login</b> ou <b>Cadastre-se</b></button>
             <a href="#"><img src="../img/cart_header_white.png" onmouseover="effect_market_cartover()" onmouseout="effect_market_cartout()" id="botao_carrinho" alt=""></a>
         </div>
@@ -161,6 +175,9 @@ include('../includesback/conexao.php');
         
     </script>
     <!-- Aparecer tela de login -->
+    <script>
+        
+    </script>
 </body>
 </html>
 <?php
