@@ -1,0 +1,118 @@
+.pag_produto{
+    background-color: white;
+    height: 900px;
+}
+
+.div_pag_produto{
+    position: relative;
+    background-color:rgb(202, 202, 202);;
+    height: 95%;
+    width: 95%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.content_produto{
+    position: relative;
+    background-color: blue;
+    width: 97%;
+    height: 97%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+.imagem_produto{
+    height: 400px;
+    margin: 1em 2em 1em 4em;
+    
+}
+.info_produto{
+    background-color: red;
+    width: 100%;
+    margin: 1em 4em 1em 0em;
+}
+.nome_produto{
+    font-family: Arial;
+    font-size: 1.6em;
+    margin: 0.5em;
+    margin-bottom: 0px;
+    font-weight: 600;
+}
+.preco_produto{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    margin: 0.5em 0.6em;
+    font-weight: 500;
+}
+
+/*/FILTROS/*/
+.filtros{
+    height: 1.5em;
+    padding-left: 0.5em;
+    background-color: green;
+}
+.filtros_itens{
+    height: 1em;
+    width: auto;
+    float: left;
+    padding: 0.2em;
+    margin-left: 0.1em;
+}
+.checkbox_filtros{
+    width: 1.2em;
+    height: 1.2em;
+    margin: 0px;
+    float: left;
+    cursor: pointer;
+}
+.nomes_checkbox{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    margin-top: 0px;
+    margin-left: 1.3em;
+    font-weight: bold;
+}
+
+.ordenar{
+    background-color: red;
+    height: auto;
+    width: 10em;
+    padding: 0.3em;
+    margin-left: 5em;
+}
+.ordenar_title{
+    margin:0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+}
+.botao_comprar{
+    margin-top: 1em;
+    width: 13em;
+    text-decoration: none;
+    padding: 1em;
+    font-family: Arial;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 1px;
+    border-color: black;
+    margin-left: 1em;
+    color: white;
+    background-color: black;
+}.botao_comprar:hover{
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+.qtd_comprar{
+    background-color: white;
+    width: 3em;
+    height: 3em;
+    border: solid black 1px;
+    color: black;
+    margin-left: 1em;
+}.qtd_comprar:hover{
+    background-color: white;
+    transition: 0.5s;
+}

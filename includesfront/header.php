@@ -41,7 +41,7 @@ include('../includesback/conexao.php');
                 <button id="botao_login_cliente"><?php echo "Olá " . $_SESSION['usuario_cli']?></button>
             <?php
                 endif;
-                //unset($_SESSION['login_completo']);//desativar isso pra manter logado
+                unset($_SESSION['login_completo']);//desativar isso pra manter logado
             ?>
             <!-- FIM - MENU COM LOGIN -->
              <!-- MENU COM LOGIN ADMINISTRATIVO -->
@@ -52,7 +52,7 @@ include('../includesback/conexao.php');
                 <button id="botao_login_cliente">Olá Admin</button>
             <?php
                 endif;
-                //unset($_SESSION['login_adm']);//desativar isso pra manter logado
+                unset($_SESSION['login_adm']);//desativar isso pra manter logado
             ?>
 
               <!--FIM - MENU COM LOGIN ADMINISTRATIVO -->

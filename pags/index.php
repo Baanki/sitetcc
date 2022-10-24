@@ -34,7 +34,7 @@ include_once('../includesfront/header.php');
                     ?>
                     <div class="produto_itens">
                     <picture>
-                        <a href="#">
+                        <a href="pag_produto.php?id=<?php echo $row['cod_produto'];?>">
                             <img src="<?php echo($img)?>" class="produto_imagem">
                         </a>
                     </picture>

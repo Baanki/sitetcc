@@ -1,5 +1,42 @@
 .minhaconta{
-    background-color: red;
+    background-color: white;
     width: 100%;
     height: 500px;
+    
+}
+.div_minhaconta{
+    background-color: rgb(202, 202, 202);
+    width: 90%;
+    height: 90%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.menus_minhaconta{
+    height: auto;
+    width: 35%;
+    padding: 1em;
+}
+.menu_item_minhaconta{
+    text-decoration: none;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    width: auto;
+    color: black;
+    border: solid 1px black;
+    padding: 1.5%;
+    margin-left: -1px;
+}.menu_item_minhaconta:hover{
+    background-color: black;
+    transition: 0.5s;
+    color: white;
+}
+.infos_minhaconta{
+    background-color: green;
+    margin-top: 0.5em;
+    height: 85%;
+    margin-left: 1%;
+    margin-right: 1%;
 }
