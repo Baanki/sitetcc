@@ -15,7 +15,7 @@ include_once('../includesfront/header.php');
     $nome_produto = $sql['prod_nome'];
     $preco_produto = $sql['prod_preco'];
     $img_produto = $sql['prod_imagem'];
-
+    $cod_produto = $sql['cod_produto'];
     
     ?>
     <section class="pag_produto">
@@ -27,7 +27,6 @@ include_once('../includesfront/header.php');
                 <div class="info_produto">
                     <h1 class="nome_produto"><?php echo($nome_produto)?></h1>
                     <h2 class="preco_produto">R$<?php echo($preco_produto)?></h2>
-                    <form>
                         <div class="filtros">
                             <div class="filtros_itens">
                                 <input type="checkbox" name="tamanho_p" class="checkbox_filtros">
@@ -51,10 +50,10 @@ include_once('../includesfront/header.php');
                             </div>
                         </div>
                         <input type="number" value="" class="qtd_comprar">
-                        <input type="submit" value="COMPRAR" class="botao_comprar">
-                    </form>
-                    <div class="detalhes_produtos">
-                        
+                        <a href="carrinho.php?adicionar=<?php echo($cod_produto);?>" class="botao_comprar">COMPRAR</a>
+                    <div class="desc_produtos">
+                        <h1 class="desc_titulo">Descrição</h1>
+                        <p class="desc_texto">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to</p>
                     </div>
                 </div>
             </div>
@@ -62,6 +61,6 @@ include_once('../includesfront/header.php');
     </section>
 </body>
 <?php
-include_once('../includesfront/footer.php')
+include_once('../includesfront/footer.php');
 ?>
 <html>
