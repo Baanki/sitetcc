@@ -27,30 +27,32 @@ include_once('../includesfront/header.php');
                 <div class="info_produto">
                     <h1 class="nome_produto"><?php echo($nome_produto)?></h1>
                     <h2 class="preco_produto">R$<?php echo($preco_produto)?></h2>
+                    <form action="carrinho.php?adicionar=<?php echo($cod_produto);?>" method="POST">
                         <div class="filtros">
                             <div class="filtros_itens">
-                                <input type="checkbox" name="tamanho_p" class="checkbox_filtros">
+                                <input type="checkbox" value="P" name="checkbox_tamanho" class="checkbox_filtros">
                                     <p class="nomes_checkbox">P</p>  
                             </div>
                             <div class="filtros_itens">
-                                <input type="checkbox" name="tamanho_p" class="checkbox_filtros">
+                                <input type="checkbox" value="M" name="checkbox_tamanho" class="checkbox_filtros">
                                     <p class="nomes_checkbox">M</p>  
                             </div>
                             <div class="filtros_itens">
-                                <input type="checkbox" name="tamanho_p" class="checkbox_filtros">
+                                <input type="checkbox" value="G" name="checkbox_tamanho" class="checkbox_filtros">
                                     <p class="nomes_checkbox">G</p>  
                             </div>
                             <div class="filtros_itens">
-                                <input type="checkbox" name="tamanho_p" class="checkbox_filtros">
+                                <input type="checkbox" value="GG" name="checkbox_tamanho" class="checkbox_filtros">
                                     <p class="nomes_checkbox">GG</p>  
                             </div>
                             <div class="filtros_itens">
-                                <input type="checkbox" name="tamanho_p" class="checkbox_filtros">
-                                    <p class="nomes_checkbox">GGG</p>  
+                                <input type="checkbox" value="XG" name="checkbox_tamanho" class="checkbox_filtros">
+                                    <p class="nomes_checkbox">XG</p>  
                             </div>
                         </div>
-                        <input type="number" value="" class="qtd_comprar">
-                        <a href="carrinho.php?adicionar=<?php echo($cod_produto);?>" class="botao_comprar">COMPRAR</a>
+                        <input type="text" value="" class="qtd_comprar" name="qtd_comprar" id="qtd_comprar">
+                        <input type="submit" class="botao_comprar" name="botao_comprar">
+                    </form>
                     <div class="desc_produtos">
                         <h1 class="desc_titulo">Descrição</h1>
                         <p class="desc_texto">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to</p>

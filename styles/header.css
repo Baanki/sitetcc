@@ -38,7 +38,7 @@ header{
             padding: 1em;
             font-family: Arial;
             border-style: solid;
-            border-radius: 5px;
+            border-radius: 3px;
             border-width: 1px;
             border-color: black;
             margin-left: 5em;
@@ -57,7 +57,7 @@ header{
                 padding: 1em;
                 font-family: Arial;
                 border-style: solid;
-                border-radius: 5px;
+                border-radius: 3px;
                 border-width: 1px;
                 border-color: black;
                 margin-left: 5em;
@@ -83,7 +83,7 @@ header{
         padding: 1em;
         font-family: Arial;
         border-style: solid;
-        border-radius: 5px;
+        border-radius: 3px;
         border-width: 1px;
         border-color: black;
         margin-left: 1em;

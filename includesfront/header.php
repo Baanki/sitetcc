@@ -35,17 +35,17 @@ include('../includesback/conexao.php');
         <div class="div_login_carrinho">
             <!-- MENU COM LOGIN -->
             <?php
-                if(isset($_SESSION['login_completo'])):              
+                if(isset($_SESSION['login_cliente'])):              
             ?>
                 <style>#botao_login{display: none;}</style>
-                <button id="botao_login_cliente"><?php echo "Olá " . $_SESSION['usuario_cli']?></button>
+                <button id="botao_login_cliente"><?php echo "Olá ";?></button>
             <?php
                 endif;
-                unset($_SESSION['login_completo']);//desativar isso pra manter logado
+                //unset($_SESSION['login_cliente']);//desativar isso pra manter logado
             ?>
             <!-- FIM - MENU COM LOGIN -->
              <!-- MENU COM LOGIN ADMINISTRATIVO -->
-             <?php
+            <?php
                 if(isset($_SESSION['login_adm'])):              
             ?>
                 <style>#botao_login{display: none;}</style>
@@ -57,7 +57,7 @@ include('../includesback/conexao.php');
 
               <!--FIM - MENU COM LOGIN ADMINISTRATIVO -->
             <button id="botao_login"><b>Login</b> ou <b>Cadastre-se</b></button>
-            <a href="#"><img src="../img/cart_header_white.png" onmouseover="effect_market_cartover()" onmouseout="effect_market_cartout()" id="botao_carrinho" alt=""></a>
+            <a href="../pags/carrinho.php"><img src="../img/cart_header_white.png" onmouseover="effect_market_cartover()" onmouseout="effect_market_cartout()" id="botao_carrinho" alt=""></a>
         </div>
 
     <!-- Tela de login/cadastro -->
@@ -103,9 +103,9 @@ include('../includesback/conexao.php');
                 </div>
             <?php
                 endif;
-                unset($_SESSION['usuario_existe'])
+                unset($_SESSION['usuario_existe']);
+                
             ?>
-            <!-- Usuário existe -->  
                 <form id="form_concluido" action="../includesback/cadastrar.php" method="POST"> 
                     <div class="cadastro_ladoa">        
                         <label for="nome_cadastro" class="texto_campo">Nome:</label>
@@ -180,6 +180,3 @@ include('../includesback/conexao.php');
     </script>
 </body>
 </html>
-<?php
-
-?> 
