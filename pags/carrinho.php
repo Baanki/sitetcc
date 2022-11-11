@@ -68,12 +68,12 @@
         </table>
         <div class="continuar_finalizar">
             <a href="index.php" class="botao_continuar_finalizar">CONTINUAR COMPRANDO</a>
-            <a href="" class="botao_continuar_finalizar">FINALIZAR COMPRA</a>
+            <a href="finalizar.php" class="botao_continuar_finalizar">FINALIZAR COMPRA</a>
         </div>
     </div>
 </body>
 <?php
-unset($_SESSION['carrinho']);
+//unset($_SESSION['carrinho']);
 include_once('../includesfront/footer.php');   
 
 ?>

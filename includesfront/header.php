@@ -38,7 +38,10 @@ include('../includesback/conexao.php');
                 if(isset($_SESSION['login_cliente'])):              
             ?>
                 <style>#botao_login{display: none;}</style>
-                <button id="botao_login_cliente"><?php echo "Olá ";?></button>
+                <div class="container_dropdown">
+                    <button class="botao_geral"><?php echo "Olá ";?></button>
+                <a href="" class="botao_geral_dropdown">Minha conta</a>
+                </div>
             <?php
                 endif;
                 //unset($_SESSION['login_cliente']);//desativar isso pra manter logado
@@ -49,7 +52,7 @@ include('../includesback/conexao.php');
                 if(isset($_SESSION['login_adm'])):              
             ?>
                 <style>#botao_login{display: none;}</style>
-                <button id="botao_login_cliente">Olá Admin</button>
+                <button id="botao_geral">Olá Admin</button>
             <?php
                 endif;
                 unset($_SESSION['login_adm']);//desativar isso pra manter logado
@@ -173,6 +176,12 @@ include('../includesback/conexao.php');
             tela_login.style.display = 'block';
         })
         
+        const botao_geral_dropdown = document.querySelector('.botao_geral_dropdown')
+        const botao_geral = document.querySelector('.botao_geral')
+        botao_geral.addEventListener('click', function(){
+            alert("CLICADO");
+            botao_geral_dropdown.style.display = 'block';
+        })
     </script>
     <!-- Aparecer tela de login -->
     <script>

@@ -50,9 +50,34 @@ header{
 
                 background-color: white;
                 color: black;
-                transition: 0.5s;
+                transition: 0.3s;
             }
-            #botao_login_cliente{
+            .botao_geral{
+                text-decoration: none;
+                width: 6em;
+                padding: 1em;
+                font-family: Arial;
+                border-style: solid;
+                border-radius: 3px;
+                border-width: 1px;
+                border-color: black;
+                color: white;
+                background-color: black;
+            }.botao_geral:hover{
+                background-color: white;
+                color: black;
+                transition: 0.3s;
+            }
+            .container_dropdown{
+                background-color: red;
+                height: 3em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+       
+            }
+            .botao_geral_dropdown{
+                position: relative;
                 text-decoration: none;
                 padding: 1em;
                 font-family: Arial;
@@ -60,15 +85,17 @@ header{
                 border-radius: 3px;
                 border-width: 1px;
                 border-color: black;
-                margin-left: 5em;
                 color: white;
                 background-color: black;
-            }#botao_login_cliente:hover{
+                display: none;
+                
+            }.botao_geral_dropdown:hover{
                 background-color: white;
                 color: black;
-                transition: 0.5s;
+                transition: 0.3s;
             }
     .div_login_carrinho{
+        background-color: blue;
         width: auto;
         height: 100%;
         align-items: center;
@@ -157,7 +184,7 @@ header{
         width: 25%;
         height: auto;
         background-color: white;
-        display: none;/* mudar aqui para teste do botton de aparecer */
+        display: none;/* mudar aqui para teste do button de aparecer */
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
