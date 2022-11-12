@@ -1,17 +1,12 @@
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <link rel="stylesheet" type="text/css" href="../styles/carrinho.css">
-    
+<script src="https://sdk.mercadopago.com/js/v2"></script>
 <?php
- include_once('../includesfront/header.php');
- require_once '../vendor/autoload.php';
+require_once '../vendor/autoload.php';
+
  MercadoPago\SDK::setAccessToken("APP_USR-2892002557288669-043018-392d89248cc43f0e3b1616db3173a9c6-259334307");
  $payment = new MercadoPago\Payment();
 
  $payment->transaction_amount = 0.10;
- $payment->description = "AAAAAAAAAAAAAAAAAAAAA do produto";
+ $payment->description = "Título do produto";
  $payment->payment_method_id = "pix";
  $payment->payer = array(
      "email" => "test@test.com",
@@ -31,11 +26,4 @@
       )
    );
    $payment->save();
-
- echo "<img style='width:250px;' src='data:image/png;base64, ".$payment->point_of_interaction->transaction_data->qr_code_base64."'>";
- //echo "<pre>", print_r($payment),"</pre>";
- echo ($payment->id);
-?>
-</head>
-<body>
-    <a href="teste-brick.php?id=<?php echo($payment->id);?>">Cluncouiu</a>
+ ?>
