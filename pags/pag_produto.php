@@ -29,6 +29,7 @@ include_once('../includesfront/header.php');
                     <h2 class="preco_produto">R$<?php echo($preco_produto)?></h2>
                     <form action="carrinho.php?adicionar=<?php echo($cod_produto);?>" method="POST">
                         <div class="filtros">
+                            <label for="checkbox_tamanho">
                             <div class="filtros_itens">
                                 <input type="checkbox" value="P" name="checkbox_tamanho" class="checkbox_filtros">
                                     <p class="nomes_checkbox">P</p>  
@@ -49,8 +50,9 @@ include_once('../includesfront/header.php');
                                 <input type="checkbox" value="XG" name="checkbox_tamanho" class="checkbox_filtros">
                                     <p class="nomes_checkbox">XG</p>  
                             </div>
+                            </label>
                         </div>
-                        <input type="text" value="" class="qtd_comprar" name="qtd_comprar" id="qtd_comprar">
+                        <input type="text" value="" class="qtd_comprar" name="qtd_comprar" id="qtd_comprar" required>
                         <input type="submit" class="botao_comprar" name="botao_comprar">
                     </form>
                     <div class="desc_produtos">

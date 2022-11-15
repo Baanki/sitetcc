@@ -39,7 +39,7 @@ include('../includesback/conexao.php');
             ?>
                 <style>#botao_login{display: none;}</style>
                 <div class="container_dropdown">
-                    <button class="botao_geral"><?php echo "Olá ";?></button>
+                    <button class="botao_geral"><?php echo "Olá";?></button>
                 <a href="" class="botao_geral_dropdown">Minha conta</a>
                 </div>
             <?php

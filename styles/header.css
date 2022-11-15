@@ -69,7 +69,7 @@ header{
                 transition: 0.3s;
             }
             .container_dropdown{
-                background-color: red;
+                background-color: black;
                 height: 3em;
                 display: flex;
                 flex-direction: column;
@@ -95,7 +95,7 @@ header{
                 transition: 0.3s;
             }
     .div_login_carrinho{
-        background-color: blue;
+        background-color: black;
         width: auto;
         height: 100%;
         align-items: center;
