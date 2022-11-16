@@ -87,7 +87,8 @@ if(isset($_POST['botao_comprar'])){
                 
                 $query = "insert into tb_movimento(mov_data,mov_valor_total,cod_cliente,cod_empresa) values ('$hoje','$total_compra','$id_cliente',1)";
                 mysqli_query($conexao, $query);
-                
+                $query_cod_movimento = mysqli_query($conexao, "select cod_movimento from tb_movimento where cod_cliente = $id_cliente");
+                $fetch = mysqli_fetch_assoc($query_cod_movimento);
                 $_SESSION['cod_movimento'] = $fetch['cod_movimento'];
                 echo "<script>document.location='finalizar.php'</script>";
             };

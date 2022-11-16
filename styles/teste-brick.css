@@ -1,0 +1,13 @@
+.container_pagamento_pendente{
+    margin: 1em;
+}
+
+.container_pagamento_concluido{
+    position: relative;
+    width: 90%;
+    text-align: left;
+    left: 50%;
+    transform: translateX(-50%);
+    border: solid 1px gray;
+    margin-top: 1em;
+}

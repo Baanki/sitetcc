@@ -1,0 +1,97 @@
+.container_pagamento{
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
+    margin-top: 1em;
+    float: left;
+    margin-bottom: 1em;
+}
+h1{
+    margin: 0px;
+}
+h2{
+    margin: 0px;
+}
+.titulo_pagamento{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0.5em;
+}
+.subtitulo_pagamento{
+    font-family: Arial;
+    margin-top: -0.5em;
+    margin-left: 1em;
+    font-size: 1.2em;
+}
+.qrcode{
+    margin-top: 1em;
+    margin-left: 1em;
+    height: auto;
+    width: 250px;
+    padding: 1em;
+    border: solid 1px gray;
+    text-align: center;
+    float: left;
+}
+.input_qrcode{
+    width: 240px;
+    height: 2em;
+    float: left;
+    border: solid 1px black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.botao_copiar{
+    position: relative;
+    padding: 1em;
+    font-family: Arial;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 1px;
+    border-color: black;
+    color: white;
+    background-color: black;
+    margin-top: 1em;
+}.botao_copiar:hover{
+    background-color: white;
+    color: black;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.tutorial{
+    width: 60%;
+    height: auto;
+    margin-top: 1em;
+    margin-left: 1em;
+    border: solid 1px gray;
+    float: left;
+    padding: 1em;
+}
+.titulo_tutorial{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4em;
+}
+.conteudo_tutorial{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 1em;
+    font-size: 1.2em;
+}
+.botao_concluir{
+    position: relative;
+    text-decoration: none;
+    padding: 1em;
+    font-family: Arial;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 1px;
+    border-color: black;
+    color: white;
+    background-color: black;
+    top: 4.5em;
+}.botao_concluir:hover{
+    background-color: white;
+    color: black;
+    transition: 0.2s;
+    cursor: pointer;
+}
+

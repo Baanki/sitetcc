@@ -19,7 +19,7 @@ include_once('../includesfront/header.php');
           $query_cod_movimento = mysqli_query($conexao, "select cod_movimento from tb_movimento where cod_cliente = {$_SESSION['id_cliente']}");
           $cod_movimento = mysqli_fetch_assoc($query_cod_movimento);
           foreach($_SESSION['carrinho'] as $key => $value){
-            $query = "insert into tb_produto_movimento(compra_qtd,compra_preco,cod_produto,cod_movimento,compra_img,compra_status) values('{$value['quantidade']}','{$value['preco']}','{$value['cod_produto']}','{$cod_movimento['cod_movimento']}','{$value['imagem']}','Pendente')";
+            $query = "insert into tb_produto_movimento(compra_qtd,compra_preco,cod_produto,cod_movimento,compra_img,compra_tamanho) values('{$value['quantidade']}','{$value['preco']}','{$value['cod_produto']}','{$cod_movimento['cod_movimento']}','{$value['imagem']}','{$value['tamanho']}')";
             mysqli_query($conexao, $query);
           }
     ?>
