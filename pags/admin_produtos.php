@@ -42,7 +42,7 @@ include_once('../includesfront/header.php');
             </tr>
             <tr>
                 <td><label for="imagem_produto">Link da imagem do produto:</label></td>
-                <td><input type="text" name="imagem_produto" require></td>
+                <td><input type="file" name="imagem_produto" ></td>
             </tr>
         </table>
         <input type="submit" name="adicionar_produtos">
@@ -55,7 +55,7 @@ echo $agora;
         $agora = date('d/m/Y H:i');
         echo("<script>alert('Produto adicionado')</script>");
         $query = mysqli_query($conexao, "insert into tb_produto(prod_nome, prod_tipo, prod_preco, cod_empresa, prod_imagem) values
-                            ('{$_POST['nome_produto']}','{$_POST['tipo_produto']}','{$_POST['valor_produto']}',1,'{$_POST['imagem_produto']}')");
+                            ('{$_POST['nome_produto']}','{$_POST['tipo_produto']}','{$_POST['valor_produto']}',1,'http://localhost/tcc/img/{$_POST['imagem_produto']}')");
     };
     include_once('../includesfront/footer.php');
 ?>

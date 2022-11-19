@@ -10,7 +10,7 @@
  require_once '../vendor/autoload.php';
  unset($_SESSION['carrinho']);
  isset($_SESSION['pagamento_pix']);
- $infos_compra_query = mysqli_query($conexao, "select * from tb_movimento as mov inner join tb_cliente as cli inner join tb_endereco as ende on mov.cod_cliente = {$_SESSION['id_cliente']} and cli.cod_cliente = {$_SESSION['id_cliente']} and ende.fk_cod_cliente = {$_SESSION['id_cliente']};");
+ $infos_compra_query = mysqli_query($conexao, "select * from tb_movimento as mov inner join tb_cliente as cli inner join tb_endereco as ende on mov.cod_cliente = {$_SESSION['id_cliente']} and cli.cod_cliente = {$_SESSION['id_cliente']} and ende.fk_cod_cliente = {$_SESSION['id_cliente']} order by cod_movimento desc limit 1;");
  $infos_compra = mysqli_fetch_assoc($infos_compra_query);
 
  MercadoPago\SDK::setAccessToken("APP_USR-2892002557288669-043018-392d89248cc43f0e3b1616db3173a9c6-259334307");
@@ -46,7 +46,7 @@
 <?php
  echo "<img style='width:250px;' src='data:image/png;base64, ".$payment->point_of_interaction->transaction_data->qr_code_base64."'>";
  //echo "<pre>", print_r($payment),"</pre>";
-
+   echo  $payment->transaction_amount;
 ?>
         <input type="text" name="qrcode" id="qrcode" class="input_qrcode" value="<?php echo($payment->point_of_interaction->transaction_data->qr_code)?>">
         <button class="botao_copiar" onclick="copiar_texto()">Clique aqui para copiar o código</button>
