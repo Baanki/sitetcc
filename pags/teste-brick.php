@@ -4,7 +4,6 @@
     <link rel="stylesheet" type="text/css" href="../styles/teste-brick.css">  
     <link rel="stylesheet" type="text/css" href="../styles/pix.css">  
     <script src="https://sdk.mercadopago.com/js/v2">
-        const mp = new MercadoPago("APP_USR-72478b91-c695-44c7-88ce-65840ae5bf40");
     </script>
 </head>
 <body>
@@ -15,30 +14,14 @@
  $id_compra = (int) $_GET['id'];
  ?>
 <?php
-$service_url = "https://api.mercadopago.com/v1/payments/$id_compra";
-$autorizacao = 'Bearer APP_USR-2892002557288669-043018-392d89248cc43f0e3b1616db3173a9c6-259334307';
-$curl = curl_init($service_url);
-//curl_setopt($curl, CURLOPT_URL,"https://api.mercadopago.com/v1/payments/51496454879");
+MercadoPago\SDK::setAccessToken("APP_USR-2892002557288669-043018-392d89248cc43f0e3b1616db3173a9c6-259334307");
 
-$header = array();
-$header[] = 'Content-lenght: 0';
-$header[] = 'Content-type: aplicattion/json';
-$header[] = 'Authorization: Bearer APP_USR-2892002557288669-043018-392d89248cc43f0e3b1616db3173a9c6-259334307';
+$payment = MercadoPago\Payment::find_by_id($id_compra);
+$payment->save();
 
-curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
-curl_setopt($curl, CURLOPT_USERPWD,$autorizacao);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($curl, CURLOPT_POST, true);
-curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-$curl_response = curl_exec($curl);
-$response = json_decode($curl_response, true);
 
-//var_dump($response);
-$teste_status = $response["status"];
-if ($teste_status === "approved"){
-    mysqli_query($conexao,"update tb_produto_movimento set compra_status = 'Aprovado'");
+if ($payment->status === "approved"){
+    mysqli_query($conexao,"update tb_movimento set compra_status = 'Aprovado'");
     ?>
     <div class="container_pagamento_concluido">
         <h1 class="titulo_pagamento">Pagamento realizado com sucesso</h1>

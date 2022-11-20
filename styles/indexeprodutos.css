@@ -46,7 +46,7 @@
     
 }
 .produto_imagem{
-    width: 100%;
+    width: 18em;
     border: solid 2px white;
 }.produto_imagem:hover{
     border: solid 2px black;

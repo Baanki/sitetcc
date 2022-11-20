@@ -12,16 +12,9 @@ include_once('../includesfront/header.php');
     <?php
     $query_dados_cliente = mysqli_query($conexao, "select * from tb_cliente where cod_cliente = {$_SESSION['id_cliente']}");
     $dados_cliente = mysqli_fetch_assoc($query_dados_cliente);
-    $query_endereco_cliente = mysqli_query($conexao, "select * from tb_endereco where fk_cod_cliente = {$_SESSION['id_cliente']}");
+    $query_endereco_cliente = mysqli_query($conexao, "select * from tb_endereco where cod_cliente = {$_SESSION['id_cliente']}");
     $endereco_cliente = mysqli_fetch_assoc($query_endereco_cliente);
-
   
-          $query_cod_movimento = mysqli_query($conexao, "select cod_movimento from tb_movimento where cod_cliente = {$_SESSION['id_cliente']}");
-          $cod_movimento = mysqli_fetch_assoc($query_cod_movimento);
-          foreach($_SESSION['carrinho'] as $key => $value){
-            $query = "insert into tb_produto_movimento(compra_qtd,compra_preco,cod_produto,cod_movimento,compra_img,compra_tamanho) values('{$value['quantidade']}','{$value['preco']}','{$value['cod_produto']}','{$cod_movimento['cod_movimento']}','{$value['imagem']}','{$value['tamanho']}')";
-            mysqli_query($conexao, $query);
-          }
     ?>
     <div class="container_geral">
       <div class="container_informacoes_cliente">
@@ -79,16 +72,40 @@ include_once('../includesfront/header.php');
                 <td></td>
                 <td></td>
                 <td class="carrinho_coluna" style="font-weight: bold;">Total</><br>R$<?php echo $total_compra?>
-                <form id="form-checkout" action="pix.php" method="post">
-                <button class="botao_pagamento" type="submit">Ir para o Pagamento</button></td>
+                <form id="form-checkout" method="post">
+                <button class="botao_pagamento" name="pagamento" type="submit">Ir para o Pagamento</button></td>
                 </form>
             </tr>
           </table>
         </div>
       </div>
     </div>
-  
 <?php
+  if(isset($_POST['pagamento'])){
+    $verificacao_query = mysqli_query($conexao, "select * from tb_movimento where cod_cliente ={$_SESSION['id_cliente']} and compra_status = 'pendente'");
+      $verificacao = mysqli_num_rows($verificacao_query);
+      if($verificacao >= 1){
+        echo ("<script>alert('Você já possui um pagamento pendente, para ver seus pagamentos pendendes acesse a página Meus Pedidis')</script>")
+        ?>
+                        
+        <?php
+      }else{
+        $query = "insert into tb_movimento(mov_valor_total,compra_status,cod_cliente,cod_empresa) values ('$total_compra','pendente','{$_SESSION['id_cliente']}',1)";
+          mysqli_query($conexao, $query);
+          $query_cod_movimento = mysqli_query($conexao, "select cod_movimento from tb_movimento where cod_cliente = {$_SESSION['id_cliente']}");
+          $fetch = mysqli_fetch_assoc($query_cod_movimento);
+          $_SESSION['cod_movimento'] = $fetch['cod_movimento'];
+          $query_cod_movimento = mysqli_query($conexao, "select cod_movimento from tb_movimento where cod_cliente = {$_SESSION['id_cliente']} and compra_status ='pendente'");
+          $cod_movimento = mysqli_fetch_assoc($query_cod_movimento);
+
+        foreach($_SESSION['carrinho'] as $key => $value){
+          $query = "insert into tb_produto_movimento(compra_qtd,compra_preco,cod_produto,cod_movimento,compra_img,compra_tamanho) values('{$value['quantidade']}','{$value['preco']}','{$value['cod_produto']}','{$cod_movimento['cod_movimento']}','{$value['imagem']}','{$value['tamanho']}')";
+          mysqli_query($conexao, $query);
+          echo "<script>document.location='pix.php'</script>";
+        }
+
+  }
+}
 include_once('../includesfront/footer.php');   
 
 ?>

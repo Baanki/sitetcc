@@ -5,9 +5,10 @@
     } else{
         $id_cliente = $_SESSION['id_cliente'];
     };
-    
-    $query = mysqli_query($conexao, 'select * from tb_produto where cod_produto = $');  
+    $id_produto = (int) $_GET['adicionar'];
+    $query = mysqli_query($conexao, "select * from tb_produto where cod_produto = '" . $_GET['adicionar'] . "'");  
     $total = 0;
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -33,7 +34,7 @@ if(isset($_POST['botao_comprar'])){
     $qtd = intval($qtd);
 
     if(isset($_GET['adicionar'])){
-        $id_produto = (int) $_GET['adicionar'];
+       
         $query = mysqli_query($conexao, "select * from tb_produto where cod_produto = $id_produto");
         $teste = mysqli_num_rows($query);
         $produto = mysqli_fetch_assoc($query);
@@ -49,16 +50,22 @@ if(isset($_POST['botao_comprar'])){
             echo("O produto não existe");
         };
     };   
+
     foreach ($_SESSION['carrinho'] as $key => $value){
-        echo '<tr><td class="carrinho_coluna"><img id="imagem_carrinho" src="'.$value['imagem'].'"?></td>
+        echo $value['cod_produto'];
+        ?>
+        
+        <!--echo '<tr><td class="carrinho_coluna"><img id="imagem_carrinho" src="'.$value['imagem'].'?>"</td>
                   <td class="carrinho_coluna" style="padding: 0px">'.$value['nome'].'<br> Tamanho: '.$value['tamanho'].'</td>
-                    
                   <td class="carrinho_coluna">'.$value['quantidade'].'</td>
                   <td class="carrinho_coluna">'.$value['preco'].'</td>
                   <td class="carrinho_coluna">R$'.$value['subtotal'].'</td></tr>';
-                  $total += $value['subtotal'];          
+                  $total += $value['subtotal'];      
+    -->  <?php  
     };
 }
+
+
     ?>
             <tr>
                 <td></td>
@@ -76,21 +83,15 @@ if(isset($_POST['botao_comprar'])){
         </div>
     </div>
     <?php
-        $hoje = date('d/m/y');
-        
         $total_compra = 0;
         echo ("<br>");
         foreach ($_SESSION['carrinho'] as $key => $value){
             $total_compra += $value['subtotal'];
         }
+        
         if(isset($_POST['finalizar_compra'])){
+            echo "<script>document.location='finalizar.php'</script>";
                 
-                $query = "insert into tb_movimento(mov_data,mov_valor_total,cod_cliente,cod_empresa) values ('$hoje','$total_compra','$id_cliente',1)";
-                mysqli_query($conexao, $query);
-                $query_cod_movimento = mysqli_query($conexao, "select cod_movimento from tb_movimento where cod_cliente = $id_cliente");
-                $fetch = mysqli_fetch_assoc($query_cod_movimento);
-                $_SESSION['cod_movimento'] = $fetch['cod_movimento'];
-                echo "<script>document.location='finalizar.php'</script>";
             };
  
         

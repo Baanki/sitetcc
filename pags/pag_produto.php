@@ -12,6 +12,7 @@ include_once('../includesfront/header.php');
     $id = $_GET['id'];
     $query = mysqli_query($conexao, "select * from tb_produto where cod_produto = $id");
     $sql = mysqli_fetch_assoc($query);
+    echo $sql['cod_produto'];
     $nome_produto = $sql['prod_nome'];
     $preco_produto = $sql['prod_preco'];
     $img_produto = $sql['prod_imagem'];
@@ -27,7 +28,7 @@ include_once('../includesfront/header.php');
                 <div class="info_produto">
                     <h1 class="nome_produto"><?php echo($nome_produto)?></h1>
                     <h2 class="preco_produto">R$<?php echo($preco_produto)?></h2>
-                    <form action="carrinho.php?adicionar=<?php echo($cod_produto);?>" method="POST">
+                    <form action="carrinho.php?adicionar=<?php echo($cod_produto)?>" method="POST">
                         <div class="filtros">
                             <label for="checkbox_tamanho">
                             <div class="filtros_itens">
