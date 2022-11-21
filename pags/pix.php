@@ -37,7 +37,7 @@
    $payment->save();
 
    if($payment->point_of_interaction->transaction_data->qr_code_base64 === null){
-    echo("<script>alert('cpf invalido!!')</script>");
+    echo("<script>alert('cpf invalido, entre nas suas configurações para alterar')</script>");
     mysqli_query($conexao, "delete from tb_movimento where cod_cliente = {$infos_compra['cod_cliente']} and compra_status = 'pendente'");
     echo ("<script>document.location='index.php'</script>");
    }

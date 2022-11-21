@@ -12,7 +12,6 @@ include_once('../includesfront/header.php');
     $id = $_GET['id'];
     $query = mysqli_query($conexao, "select * from tb_produto where cod_produto = $id");
     $sql = mysqli_fetch_assoc($query);
-    echo $sql['cod_produto'];
     $nome_produto = $sql['prod_nome'];
     $preco_produto = $sql['prod_preco'];
     $img_produto = $sql['prod_imagem'];
