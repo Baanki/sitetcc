@@ -37,11 +37,11 @@ if ($payment->status === "approved"){
         <h2 class="subtitulo_pagamento">Leia o Código QR para concluir seu pagamento</h2>
         <div class="qrcode">
         <?php
-        echo "<img style='width:250px;' src='data:image/png;base64, ".$_SESSION['codigo_qr_64']."'>";
+        echo "<img style='width:250px;' src='data:image/png;base64, ".$payment->point_of_interaction->transaction_data->qr_code_base64."'>";
         //echo "<pre>", print_r($payment),"</pre>";
 
         ?>
-                <input type="text" name="qrcode" id="qrcode" class="input_qrcode" value="<?php echo $_SESSION['codigo_qr']?>">
+                <input type="text" name="qrcode" id="qrcode" class="input_qrcode" value="<?php echo $payment->point_of_interaction->transaction_data->qr_code?>">
                 <button class="botao_copiar" onclick="copiar_texto()">Clique aqui para copiar o código</button>
             </div>
         <div class="tutorial">

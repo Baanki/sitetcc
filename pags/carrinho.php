@@ -66,6 +66,7 @@ if(isset($_POST['botao_comprar'])){
     };   
 
 }
+
     ?>
             <tr>
                 <td></td>

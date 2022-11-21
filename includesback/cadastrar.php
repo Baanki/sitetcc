@@ -9,7 +9,7 @@ $emailcli = mysqli_real_escape_string($conexao, $_POST['email_cadastro']);
 $nomecli = mysqli_real_escape_string($conexao, $_POST['nome_cadastro']);
 $telefonecli = mysqli_real_escape_string($conexao, $_POST['telefone_cadastro']);
 $cpfcli = mysqli_real_escape_string($conexao, $_POST['cpf_cadastro']);
-$senhacli = mysqli_real_escape_string($conexao, $_POST['senha_cadastro']);
+$senhacli = mysqli_real_escape_string($conexao, md5($_POST['senha_cadastro']));
 $datacli = mysqli_real_escape_string($conexao, $_POST['data_cadastro']);
 //TABELA tb_endereco
 $cepcli = mysqli_real_escape_string($conexao, $_POST['cep_cadastro']);

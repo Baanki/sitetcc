@@ -35,9 +35,12 @@
       )
    );
    $payment->save();
-   $_SESSION['codigo_qr_64'] = $payment->point_of_interaction->transaction_data->qr_code_base64;
-   
-   $_SESSION['codigo_qr'] = $payment->point_of_interaction->transaction_data->qr_code;
+
+   if($payment->point_of_interaction->transaction_data->qr_code_base64 === null){
+    echo("<script>alert('cpf invalido!!')</script>");
+    mysqli_query($conexao, "delete from tb_movimento where cod_cliente = {$infos_compra['cod_cliente']} and compra_status = 'pendente'");
+    echo ("<script>document.location='index.php'</script>");
+   }
    $query_id_pagamento = mysqli_query($conexao, "update tb_movimento set id_compra = '$payment->id' where cod_movimento = {$infos_compra['cod_movimento']}");
 ?>
 <div class="container_pagamento">

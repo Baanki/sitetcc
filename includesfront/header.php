@@ -112,48 +112,47 @@ include('../includesback/conexao.php');
                 </div>
             <?php
                 endif;
-                unset($_SESSION['usuario_existe']);
-                
+                unset($_SESSION['usuario_existe']);   
             ?>
                 <form id="form_concluido" action="../includesback/cadastrar.php" method="POST"> 
                     <div class="cadastro_ladoa">        
                         <label for="nome_cadastro" class="texto_campo">Nome:</label>
-                            <input class="cadastro_campo" type="text" name="nome_cadastro" id="nome_cadastro">       
+                            <input class="cadastro_campo" type="text" name="nome_cadastro" id="nome_cadastro" required>       
                         <label for="email_cadastro" class="texto_campo">E-mail:</label>
-                            <input class="cadastro_campo" type="email" name="email_cadastro" id="email_cadastro">
+                            <input class="cadastro_campo" type="email" name="email_cadastro" id="email_cadastro" required>
                         <label for="telefone_cadastro" class="texto_campo">Telefone:</label>
-                            <input class="cadastro_campo" type="text" name="telefone_cadastro" id="telefone_cadastro">
+                            <input class="cadastro_campo" type="text" name="telefone_cadastro" id="telefone_cadastro" required>
                         <div class="cadastro_ladoin_a">
                             <label for="cpf_cadastro" class="texto_campo">CPF:</label>
-                                <input class="cadastro_campo2" type="text" name="cpf_cadastro" id="cpf_cadastro">
+                                <input class="cadastro_campo2" type="text" name="cpf_cadastro" id="cpf_cadastro" required>
                             <label for="senha_cadastro" class="texto_campo">Senha:</label>
-                                <input class="cadastro_campo" type="password" name="senha_cadastro">
+                                <input class="cadastro_campo" id="password" type="password" name="senha_cadastro" required>
                         </div>
                         <div class="cadastro_ladoin_b">
                             <label for="data_cadastro" class="texto_campo">Data de Nascimento:</label>
-                                <input class="cadastro_campo" type="text" name="data_cadastro" id="data_cadastro";>
+                                <input class="cadastro_campo" type="text" name="data_cadastro" id="data_cadastro"; required>
                             <label for="senha_cadastro2" class="texto_campo">Confirmar Senha:</label>
-                                <input class="cadastro_campo" type="password" name="senha_cadastro2">
+                                <input class="cadastro_campo" id="confirm_password" type="password" name="senha_cadastro2" required>
                         </div>
                     </div>
                         <div class="cadastro_ladob">
                         <label for="cep_cadastro" class="texto_campo">CEP:</label>
-                            <input class="cadastro_campo2" type="text" name="cep_cadastro" id="cep_cadastro" value="" onblur="pesquisacep(this.value);">
+                            <input class="cadastro_campo2" type="text" name="cep_cadastro" id="cep_cadastro" value="" onblur="pesquisacep(this.value);" required>
                         <label for="logradouro_cadastro" class="texto_campo">Logradouro:</label>
-                            <input class="cadastro_campo" type="text" name="logradouro_cadastro" id="logradouro_cadastro">
+                            <input class="cadastro_campo" type="text" name="logradouro_cadastro" id="logradouro_cadastro" required>
                         <div class="cadastro_ladoin_a">
                             <label for="numero_casa_cadastro" class="texto_campo">Número:</label>
-                                <input class="cadastro_campo" type="text" name="numero_casa_cadastro">
+                                <input class="cadastro_campo" type="text" name="numero_casa_cadastro" required>
                             <label for="bairro_cadastro" class="texto_campo">Bairro:</label>
-                                <input class="cadastro_campo" type="text" name="bairro_cadastro" id="bairro_cadastro"> 
+                                <input class="cadastro_campo" type="text" name="bairro_cadastro" id="bairro_cadastro" required> 
                             <label for="estado_cadastro" class="texto_campo">Estado:</label>
-                                <input class="cadastro_campo" type="text" name="estado_cadastro" id="estado_cadastro">   
+                                <input class="cadastro_campo" type="text" name="estado_cadastro" id="estado_cadastro" required>   
                         </div>
                         <div class="cadastro_ladoin_b">
                             <label for="complemento_cadastro" class="texto_campo">Complemento:</label>
-                                <input class="cadastro_campo" type="text" name="complemento_cadastro" id="complemento_cadastro">
+                                <input class="cadastro_campo" type="text" name="complemento_cadastro" id="complemento_cadastro" required>
                             <label for="cidade_cadastro" class="texto_campo">Cidade:</label>
-                                <input class="cadastro_campo" type="text" name="cidade_cadastro" id="cidade_cadastro">  
+                                <input class="cadastro_campo" type="text" name="cidade_cadastro" id="cidade_cadastro" required>  
                                 <input class="submit_campo" style="margin-top: 15px; width: 90%;" type="submit" name="entrar_cadastro" value="Cadastrar"> 
                         </div> 
                     </div>        
@@ -176,6 +175,19 @@ include('../includesback/conexao.php');
             tela_cadastro.style.display = 'block';
         })
 
+        var password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirm_password");
+
+        function validatePassword(){
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Senhas diferentes!");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+        }
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
     </script>
     <!-- Aparecer tela de login -->
     <?php
