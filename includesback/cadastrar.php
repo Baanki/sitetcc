@@ -44,7 +44,7 @@ if($conexao -> query($sql) === true){
     while ($row = mysqli_fetch_assoc($query)){
         $codcli = $row['cod_cliente'];
     }
-    $sql2 = "insert into tb_endereco(end_cep, end_logradouro, end_numero, end_complemento, end_bairro, end_cidade, end_estado, fk_cod_cliente) values
+    $sql2 = "insert into tb_endereco(end_cep, end_logradouro, end_numero, end_complemento, end_bairro, end_cidade, end_estado, cod_cliente) values
                                     ('$cepcli', '$logradourocli', '$numerocli', '$complementocli', '$bairrocli', '$cidadecli','$estadocli','$codcli')";
     $conexao -> query($sql2);
     $_SESSION['cadastro_concluido'] = true;

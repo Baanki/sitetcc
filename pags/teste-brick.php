@@ -14,11 +14,10 @@
  $id_compra = (int) $_GET['id'];
  ?>
 <?php
-MercadoPago\SDK::setAccessToken("APP_USR-2892002557288669-043018-392d89248cc43f0e3b1616db3173a9c6-259334307");
+MercadoPago\SDK::setAccessToken("APP_USR-4824210125034889-112015-2c8ba47b6654e5bef3ec032ac5931f36-442749057");
 
 $payment = MercadoPago\Payment::find_by_id($id_compra);
 $payment->save();
-
 
 if ($payment->status === "approved"){
     mysqli_query($conexao,"update tb_movimento set compra_status = 'Aprovado'");

@@ -40,7 +40,7 @@ include_once('../includesfront/header.php');
         <h1 class="produtos_lancamento">LANÇAMENTOS</h1>
         <div class="produtos_grid">
         <?php
-            $query = 'select cod_produto,prod_nome,prod_imagem,prod_preco from tb_produto where prod_data <= (select max(prod_data) from tb_produto) order by prod_data desc limit 8';
+            $query = "select cod_produto,prod_nome,prod_imagem,prod_preco from tb_produto where prod_data <= (select max(prod_data) from tb_produto) and prod_tipo = 'Moletom' order by prod_data desc limit 8";
             $puxarprodutos = mysqli_query($conexao, $query);
             if ($puxarprodutos === false){
             echo("Erro ao puxar do banco de dados");

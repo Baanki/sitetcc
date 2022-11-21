@@ -12,7 +12,7 @@
  $infos_compra_query = mysqli_query($conexao, "select * from tb_movimento as mov inner join tb_cliente as cli inner join tb_endereco as ende on mov.cod_cliente = {$_SESSION['id_cliente']} and cli.cod_cliente = {$_SESSION['id_cliente']} and ende.cod_cliente = {$_SESSION['id_cliente']} order by cod_movimento desc limit 1;");
  $infos_compra = mysqli_fetch_assoc($infos_compra_query);
 
- MercadoPago\SDK::setAccessToken("APP_USR-2892002557288669-043018-392d89248cc43f0e3b1616db3173a9c6-259334307");
+ MercadoPago\SDK::setAccessToken("APP_USR-4824210125034889-112015-2c8ba47b6654e5bef3ec032ac5931f36-442749057");
  $payment = new MercadoPago\Payment();
 
  $payment->transaction_amount = $infos_compra['mov_valor_total'];
@@ -36,7 +36,9 @@
    );
    $payment->save();
    $_SESSION['codigo_qr_64'] = $payment->point_of_interaction->transaction_data->qr_code_base64;
+   
    $_SESSION['codigo_qr'] = $payment->point_of_interaction->transaction_data->qr_code;
+   $query_id_pagamento = mysqli_query($conexao, "update tb_movimento set id_compra = '$payment->id' where cod_movimento = {$infos_compra['cod_movimento']}");
 ?>
 <div class="container_pagamento">
    <h1 class="titulo_pagamento">Pedido Cadastrado</h1>
@@ -44,7 +46,7 @@
    <div class="qrcode">
 <?php
  echo "<img style='width:250px;' src='data:image/png;base64, ".$payment->point_of_interaction->transaction_data->qr_code_base64."'>";
- echo "<pre>", print_r($payment),"</pre>";
+ //echo "<pre>", print_r($payment),"</pre>";
    echo  $payment->transaction_amount;
  echo $payment->id;
 ?>

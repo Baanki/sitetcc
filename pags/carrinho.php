@@ -5,8 +5,7 @@
     } else{
         $id_cliente = $_SESSION['id_cliente'];
     };
-    $id_produto = (int) $_GET['adicionar'];
-    $query = mysqli_query($conexao, "select * from tb_produto where cod_produto = '" . $_GET['adicionar'] . "'");  
+    
     $total = 0;
     
 ?>
@@ -29,6 +28,8 @@
             </tr>
 <?php
 if(isset($_POST['botao_comprar'])){
+    $id_produto = (int) $_GET['adicionar'];
+    $query = mysqli_query($conexao, "select * from tb_produto where cod_produto = '" . $_GET['adicionar'] . "'");  
     $tamanho = mysqli_real_escape_string($conexao, $_POST['checkbox_tamanho']);
     $qtd = mysqli_real_escape_string($conexao, $_POST['qtd_comprar']);
     $qtd = intval($qtd);
@@ -40,32 +41,31 @@ if(isset($_POST['botao_comprar'])){
         $produto = mysqli_fetch_assoc($query);
         $total = 0;
         if($teste > 0){
-            if(isset($_SESSION[$id_produto])){
-                $_SESSION['carrinho'][$id_produto]['quantidade']=1;
-            }else{
                 $_SESSION['carrinho'][$id_produto] = array('cod_produto'=>$produto['cod_produto'],'imagem'=>$produto['prod_imagem'],'quantidade'=>$qtd, 'nome'=>$produto['prod_nome'],'tamanho'=>$tamanho,'preco'=>$produto['prod_preco'], 'subtotal'=>$qtd*$produto['prod_preco']);
-            }
-            
-        }else{
+        }    else{
             echo("O produto não existe");
         };
     };   
-
     foreach ($_SESSION['carrinho'] as $key => $value){
-        echo $value['cod_produto'];
-        ?>
-        
-        <!--echo '<tr><td class="carrinho_coluna"><img id="imagem_carrinho" src="'.$value['imagem'].'?>"</td>
+        echo '<tr><td class="carrinho_coluna"><img id="imagem_carrinho" src="'.$value['imagem'].'?>"</td>
                   <td class="carrinho_coluna" style="padding: 0px">'.$value['nome'].'<br> Tamanho: '.$value['tamanho'].'</td>
                   <td class="carrinho_coluna">'.$value['quantidade'].'</td>
                   <td class="carrinho_coluna">'.$value['preco'].'</td>
                   <td class="carrinho_coluna">R$'.$value['subtotal'].'</td></tr>';
                   $total += $value['subtotal'];      
-    -->  <?php  
     };
+    
+}else{
+    foreach ($_SESSION['carrinho'] as $key => $value){
+        echo '<tr><td class="carrinho_coluna"><img id="imagem_carrinho" src="'.$value['imagem'].'?>"</td>
+                  <td class="carrinho_coluna" style="padding: 0px">'.$value['nome'].'<br> Tamanho: '.$value['tamanho'].'</td>
+                  <td class="carrinho_coluna">'.$value['quantidade'].'</td>
+                  <td class="carrinho_coluna">'.$value['preco'].'</td>
+                  <td class="carrinho_coluna">R$'.$value['subtotal'].'</td></tr>';
+                  $total += $value['subtotal'];      
+    };   
+
 }
-
-
     ?>
             <tr>
                 <td></td>

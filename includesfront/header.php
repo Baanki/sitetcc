@@ -39,12 +39,13 @@ include('../includesback/conexao.php');
             ?>
                 <style>#botao_login{display: none;}</style>
                 <div class="container_dropdown">
-                    <button class="botao_geral"><?php echo "Olá";?></button>
-                <a href="" class="botao_geral_dropdown">Minha conta</a>
+                    <a href="meus_pedidos.php" class="botao_geral_dropdown">Meus pedidos</a>
+                    <form method="POST">
+                    <input type="submit" name="sair_conta" value="Sair da conta"class="botao_geral_dropdown">
+                    </form>
                 </div>
             <?php
                 endif;
-                //unset($_SESSION['login_cliente']);//desativar isso pra manter logado
             ?>
             <!-- FIM - MENU COM LOGIN -->
              <!-- MENU COM LOGIN ADMINISTRATIVO -->
@@ -52,10 +53,15 @@ include('../includesback/conexao.php');
                 if(isset($_SESSION['login_adm'])):              
             ?>
                 <style>#botao_login{display: none;}</style>
-                <button id="botao_geral">Olá Admin</button>
+                <div class="container_dropdown">
+                <a href="admin_produtos.php" class="botao_geral_admin">Adicionar produtos</a>
+                <a href="admin_pedidos.php" class="botao_geral_admin">Pedidos</a>
+                    <form method="POST">
+                    <input type="submit" name="sair_conta" value="Sair da conta"class="botao_geral_admin">
+                    </form>
+                </div>
             <?php
                 endif;
-                unset($_SESSION['login_adm']);//desativar isso pra manter logado
             ?>
 
               <!--FIM - MENU COM LOGIN ADMINISTRATIVO -->
@@ -170,22 +176,14 @@ include('../includesback/conexao.php');
             tela_cadastro.style.display = 'block';
         })
 
-        const botao_aqui_cad_conc = document.querySelector('.texto_cadastro_concluido_aqui')
-        botao_aqui_cad_conc.addEventListener('click', function(){
-            tela_cadastro.style.display = 'none';
-            tela_login.style.display = 'block';
-        })
-        
-        const botao_geral_dropdown = document.querySelector('.botao_geral_dropdown')
-        const botao_geral = document.querySelector('.botao_geral')
-        botao_geral.addEventListener('click', function(){
-            alert("CLICADO");
-            botao_geral_dropdown.style.display = 'block';
-        })
     </script>
     <!-- Aparecer tela de login -->
-    <script>
-        
-    </script>
+    <?php
+        if(isset($_POST['sair_conta'])){
+            unset($_SESSION['login_cliente']);
+            unset($_SESSION['login_adm']);
+            echo "<script>document.location='index.php'</script>";
+        }
+    ?>
 </body>
 </html>
