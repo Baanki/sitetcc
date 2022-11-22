@@ -25,7 +25,7 @@ include_once('../includesfront/header.php');
           <p class="dados_cliente">CPF: <?php echo $dados_cliente['cli_cpf']?></p>
           <p class="dados_cliente">Telefone: <?php echo $dados_cliente['cli_telefone']?></p>
           <p class="dados_cliente">&nbsp;</p>
-          <button class="botao_alterar">Editar</button>
+          <a href="minhaconta.php" class="botao_alterar">Editar</a>
         </div>
         <div class="informacoes_compra">
           <p class="titulo_informacoes">Endereco do cliente</p>
@@ -34,7 +34,7 @@ include_once('../includesfront/header.php');
           <p class="dados_cliente"><?php echo $endereco_cliente['end_complemento']?></p>
           <p class="dados_cliente"><?php echo $endereco_cliente['end_bairro']?></p>
           <p class="dados_cliente"><?php echo $endereco_cliente['end_cidade']?>/<?php echo $endereco_cliente['end_estado']?> - <?php echo $endereco_cliente['end_cep']?></p>
-          <button class="botao_alterar">Editar</button>
+          <a href="minhaconta.php" class="botao_alterar">Editar</a>
         </div>
         <div class="informacoes_compra">
           <p class="titulo_informacoes">Método de pagamento</p>   

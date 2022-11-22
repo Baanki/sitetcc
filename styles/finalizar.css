@@ -53,6 +53,7 @@ p{
     background-color: black;
     margin-left: 1em;
     margin-bottom: 1em;
+    text-decoration: none;
 }.botao_alterar:hover{
     background-color: white;
     color: black;
