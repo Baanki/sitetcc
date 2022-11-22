@@ -68,7 +68,17 @@ foreach($query_movimento as $m => $mov){
                 <form action="teste-brick.php?id=<?php echo $id_compra?>" method="POST">
                     <button>Efetuar o pagamento</button><br>
                 </form>
+                <form method="POST">
+                    <button name="cancelar_pedido">Cancelar compra</button><br>
+                </form>
                 <?php
+                if(isset($_POST['cancelar_pedido'])){
+                    mysqli_query($conexao, "delete from tb_movimento where cod_movimento = {$mov['cod_movimento']} and cod_cliente = {$_SESSION['id_cliente']} and compra_status = 'pendente'");
+                    $payment = MercadoPago\Payment::find_by_id($id_compra);
+                    $payment->status = "cancelled";
+                    $payment->update();
+                    echo "<script>document.location='meus_pedidos.php'</script>";
+                };
             }else{
             echo("<td>");
             echo("Pagamento Efetuado");      

@@ -97,7 +97,7 @@ header{
                 transition: 0.3s;
             }
 
-            .botao_geral_admin{
+            .botao_geral_login{
                 position: relative;
                 text-decoration: none;
                 padding: 0.5em;
@@ -112,7 +112,7 @@ header{
                 cursor: pointer;
                 margin-top: -1.9em;
                 margin-bottom: 2em;
-            }.botao_geral_admin:hover{
+            }.botao_geral_login:hover{
                 background-color: white;
                 color: black;
                 transition: 0.3s;

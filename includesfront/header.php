@@ -39,9 +39,10 @@ include('../includesback/conexao.php');
             ?>
                 <style>#botao_login{display: none;}</style>
                 <div class="container_dropdown">
-                    <a href="meus_pedidos.php" class="botao_geral_dropdown">Meus pedidos</a>
+                    <a href="meus_pedidos.php" class="botao_geral_login">Meus pedidos</a>
+                    <a href="minhaconta.php" class="botao_geral_login">Minha conta</a>
                     <form method="POST">
-                    <input type="submit" name="sair_conta" value="Sair da conta"class="botao_geral_dropdown">
+                    <input type="submit" name="sair_conta" value="Sair da conta"class="botao_geral_login">
                     </form>
                 </div>
             <?php
@@ -54,10 +55,10 @@ include('../includesback/conexao.php');
             ?>
                 <style>#botao_login{display: none;}</style>
                 <div class="container_dropdown">
-                <a href="admin_produtos.php" class="botao_geral_admin">Adicionar produtos</a>
-                <a href="admin_pedidos.php" class="botao_geral_admin">Pedidos</a>
+                <a href="admin_produtos.php" class="botao_geral_login">Adicionar produtos</a>
+                <a href="admin_pedidos.php" class="botao_geral_login">Pedidos</a>
                     <form method="POST">
-                    <input type="submit" name="sair_conta" value="Sair da conta"class="botao_geral_admin">
+                    <input type="submit" name="sair_conta" value="Sair da conta"class="botao_geral_login">
                     </form>
                 </div>
             <?php
