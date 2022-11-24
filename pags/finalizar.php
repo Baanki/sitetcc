@@ -85,7 +85,7 @@ include_once('../includesfront/header.php');
     $verificacao_query = mysqli_query($conexao, "select * from tb_movimento where cod_cliente ={$_SESSION['id_cliente']} and compra_status = 'pendente'");
       $verificacao = mysqli_num_rows($verificacao_query);
       if($verificacao >= 1){
-        echo ("<script>alert('Você já possui um pagamento pendente, para ver seus pagamentos pendendes acesse a página Meus Pedidis')</script>")
+        echo ("<script>alert('Você já possui um pagamento pendente, para ver seus pagamentos pendendes acesse a página Meus Pedidos')</script>")
         ?>
                         
         <?php

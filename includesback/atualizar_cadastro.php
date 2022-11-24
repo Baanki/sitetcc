@@ -9,7 +9,7 @@ $emailcli = mysqli_real_escape_string($conexao, $_POST['email_atualizar']);
 $nomecli = mysqli_real_escape_string($conexao, $_POST['nome_atualizar']);
 $telefonecli = mysqli_real_escape_string($conexao, $_POST['telefone_atualizar']);
 $cpfcli = mysqli_real_escape_string($conexao, $_POST['cpf_atualizar']);
-$senhacli = mysqli_real_escape_string($conexao, md5($_POST['senha_atualizar']));
+$senhacli = mysqli_real_escape_string($conexao, $_POST['senha_atualizar']);
 $datacli = mysqli_real_escape_string($conexao, $_POST['data_atualizar']);
 //TABELA tb_endereco
 echo ($_SESSION['id_cliente']);

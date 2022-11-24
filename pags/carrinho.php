@@ -50,9 +50,10 @@ if(isset($_POST['botao_comprar'])){
         echo '<tr><td class="carrinho_coluna"><img id="imagem_carrinho" src="'.$value['imagem'].'?>"</td>
                   <td class="carrinho_coluna" style="padding: 0px">'.$value['nome'].'<br> Tamanho: '.$value['tamanho'].'</td>
                   <td class="carrinho_coluna">'.$value['quantidade'].'</td>
-                  <td class="carrinho_coluna">'.$value['preco'].'</td>
+                  <td class="carrinho_coluna">'.$value['preco'].'  <a href="?remover='.$key.'">X</a></td>
                   <td class="carrinho_coluna">R$'.$value['subtotal'].'</td></tr>';
-                  $total += $value['subtotal'];      
+                  $total += $value['subtotal'];   
+                 
     };
     
 }else{
